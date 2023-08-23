@@ -1,9 +1,16 @@
-import Image from 'next/image';
+import Logo from '@/lib/assets/Logo';
+import Profile from '@/lib/assets/Profile';
+import Navigation from '@/lib/components/Navigation';
+import WineCard from '@/lib/components/WineCard';
+import WineButton from '@/lib/components/WineButton';
 
 export default function Home() {
   return (
-    <main className='flex min-h-screen flex-col items-center justify-between p-24'>
-      <h1>Vinoa</h1>
+    <main className=''>
+      <Navigation />
+
+      <WineButton />
+      <WineCard />
     </main>
   );
 }

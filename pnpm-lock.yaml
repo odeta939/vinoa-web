@@ -1,0 +1,13 @@
+lockfileVersion: '6.0'
+
+dependencies:
+  swiper:
+    specifier: ^10.2.0
+    version: 10.2.0
+
+packages:
+
+  /swiper@10.2.0:
+    resolution: {integrity: sha512-nktQsOtBInJjr3f5DicxC8eHYGcLXDVIGPSon0QoXRaO6NjKnATCbQ8SZsD3dN1Ph1RH4EhVPwSYCcuDRFWHGQ==}
+    engines: {node: '>= 4.7.0'}
+    dev: false
