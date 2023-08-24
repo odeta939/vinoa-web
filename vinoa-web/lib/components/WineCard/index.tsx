@@ -7,8 +7,9 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 const WineCard = () => {
   return (
     <>
-      <section className='py-16 bg-slate-400 absolute inset-x-0 bottom-0 '>
-        <div className='text-blue-darker mb-10 flex w-full justify-between'>
+      <section className='py-16 bg-[#03d18f]/20 absolute inset-x-0 bottom-0 '>
+        <div className='bg-white'></div>
+        <div className=' mb-10 flex w-full justify-between'>
           <div className='flex items-center gap-12'>
             <h2 className='text-3xl font-medium  leading-6'>
               Wines tasted before:
