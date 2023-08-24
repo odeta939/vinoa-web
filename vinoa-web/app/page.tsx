@@ -1,7 +1,7 @@
 import Logo from '@/lib/assets/Logo';
 import Profile from '@/lib/assets/Profile';
 import Navigation from '@/lib/components/Navigation';
-import WineCard from '@/lib/components/WineCard';
+import WineCarousel from '@/lib/components/WineCarousel';
 import WineButton from '@/lib/components/WineButton';
 
 export default function Home() {
@@ -10,7 +10,7 @@ export default function Home() {
       <Navigation />
 
       <WineButton />
-      <WineCard />
+      <WineCarousel />
     </main>
   );
 }
