@@ -8,7 +8,6 @@ export default function Home() {
   return (
     <main className=''>
       <Navigation />
-
       <WineButton />
       <WineCard />
     </main>

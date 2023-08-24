@@ -1,9 +1,9 @@
 'use client';
 import { ArrowLeftIcon, ArrowRightIcon } from '@heroicons/react/24/solid';
-
 import 'swiper/css';
 import { Keyboard, Navigation } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
+
 const WineCard = () => {
   return (
     <>
