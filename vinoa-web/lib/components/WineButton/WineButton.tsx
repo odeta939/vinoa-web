@@ -1,8 +1,8 @@
 import Wine from '@/lib/assets/Wine';
 const WineButton = () => {
   return (
-    <div className='flex justify-center pt-52'>
-      <button className='bg-main-gold w-64 flex text-xl justify-around items-center py-4'>
+    <div className='h-auto grow  self-center'>
+      <button className='w-64 flex text-xl justify-around items-center place-self-center py-4'>
         Todays wine <Wine />
       </button>
     </div>

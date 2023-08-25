@@ -4,11 +4,11 @@ import Profile from '@/lib/assets/Profile';
 
 const Navigation = () => {
   return (
-    <nav className='bg-[#013927]  p-4'>
+    <nav className='p-4 shrink'>
       <div className='flex place-items-center justify-between'>
         <div className='flex items-center'>
           <Logo />
-          <h1 className='text-[#BC9161] text-[50px]'>Wine Tastery</h1>
+          <h1 className='text-[50px]'>Wine Tastery</h1>
         </div>
         <ul className=' flex justify-end items-center gap-6 '>
           <li className='hover:underline underline-offset-4'>
