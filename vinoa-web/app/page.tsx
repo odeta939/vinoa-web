@@ -1,15 +1,14 @@
-import Logo from '@/lib/assets/Logo';
-import Profile from '@/lib/assets/Profile';
-import Navigation from '@/lib/components/Navigation';
 import WineCarousel from '@/lib/components/WineCarousel';
 import WineButton from '@/lib/components/WineButton';
+import Navigation from '@/lib/components/Navigation';
 
 export default function Home() {
   return (
-    <main className=''>
+    <main className='min-h-screen flex flex-col items-stretch'>
       <Navigation />
 
       <WineButton />
+
       <WineCarousel />
     </main>
   );
