@@ -26,4 +26,4 @@ jobs:
       - name: Deploy Sanity
         run: |
           set -e
-          SANITY_AUTH_TOKEN="${{ secrets.SANITY_AUTH_TOKEN }}" pnpm run deploy
+          SANITY_AUTH_TOKEN="${{ secrets.SANITY_AUTH_TOKEN }}" pnpm deploy
