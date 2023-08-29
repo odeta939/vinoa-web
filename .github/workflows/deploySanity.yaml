@@ -6,10 +6,6 @@ on:
   pull_request:
     branches: ['main']
 
-defaults:
-  run:
-    working-directory: ./wine-tastery
-
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
@@ -28,6 +24,8 @@ jobs:
       run: pnpm install -g @sanity/cli
     - name: Build Studio
       run: pnpm run build
+      working-directory: ./wine-tastery
 
     - name: Deploy Sanity
       run: pnpm run deploy --token ${{ secrets.SANITY_AUTH_TOKEN }} --dataset production --yes
+      working-directory: ./wine-tastery
