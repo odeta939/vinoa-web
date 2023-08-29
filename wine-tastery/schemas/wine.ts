@@ -53,6 +53,7 @@ export default defineType({
                 defineField({
                     name: 'wineRating',
                     type: rating.type,
+                    validation: Rule => Rule.required().min(1).max(5)
                 })
             ]
             
