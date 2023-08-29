@@ -26,7 +26,7 @@ const WineCarousel = () => {
 
         <Swiper
           slidesPerView={2.3}
-          spaceBetween={24}
+          spaceBetween={60}
           speed={600}
           navigation={{
             nextEl: '.image-swiper-button-next',
@@ -40,31 +40,94 @@ const WineCarousel = () => {
           className='mySwiper'
         >
           <SwiperSlide>
-            <WineCard wineName='Wine A' />
+            <WineCard
+              wineName='Wine A'
+              country='Italy'
+              region='Tuscany'
+              color='Red'
+              smell='Fruity'
+              taste='Dry'
+            />
           </SwiperSlide>
           <SwiperSlide>
-            <WineCard wineName='Wine B' />
+            <WineCard
+              wineName='Wine B'
+              country='Italy'
+              region='Tuscany'
+              color='Red'
+              smell='Fruity'
+              taste='Dry'
+            />
           </SwiperSlide>
           <SwiperSlide>
-            <WineCard wineName='Wine C' />
+            <WineCard
+              wineName='Wine C'
+              country='Italy'
+              region='Tuscany'
+              color='Red'
+              smell='Fruity'
+              taste='Dry'
+            />
           </SwiperSlide>
           <SwiperSlide>
-            <WineCard wineName='Wine D' />
+            <WineCard
+              wineName='Wine D'
+              country='Italy'
+              region='Tuscany'
+              color='Red'
+              smell='Fruity'
+              taste='Dry'
+            />
           </SwiperSlide>
           <SwiperSlide>
-            <WineCard wineName='Wine E' />
+            <WineCard
+              wineName='Wine E'
+              country='Italy'
+              region='Tuscany'
+              color='Red'
+              smell='Fruity'
+              taste='Dry'
+            />
           </SwiperSlide>
           <SwiperSlide>
-            <WineCard wineName='Wine F' />
+            <WineCard
+              wineName='Wine F'
+              country='Italy'
+              region='Tuscany'
+              color='Red'
+              smell='Fruity'
+              taste='Dry'
+            />
           </SwiperSlide>
           <SwiperSlide>
-            <WineCard wineName='Wine G' />
+            <WineCard
+              wineName='Wine G'
+              country='Italy'
+              region='Tuscany'
+              color='Red'
+              smell='Fruity'
+              taste='Dry'
+            />
           </SwiperSlide>
           <SwiperSlide>
-            <WineCard wineName='Wine H' />
+            <WineCard
+              wineName='Wine H'
+              country='Italy'
+              region='Tuscany'
+              color='Red'
+              smell='Fruity'
+              taste='Dry'
+            />
           </SwiperSlide>
           <SwiperSlide>
-            <WineCard wineName='Wine I' />
+            <WineCard
+              wineName='Wine I'
+              country='Italy'
+              region='Tuscany'
+              color='Red'
+              smell='Fruity'
+              taste='Dry'
+            />
           </SwiperSlide>
         </Swiper>
       </section>
