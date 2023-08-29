@@ -26,10 +26,6 @@ jobs:
       - name: Install dependencies
         run: |
           pnpm install
-
-      -name: Build Sanity
-        run: pnpm build
-        
       - name: Deploy Sanity
         run: |
           set -e
