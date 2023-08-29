@@ -22,4 +22,4 @@ jobs:
       run: pnpm install
 
     - name: Deploy Sanity Studio
-      run: pnpm run deploy
+      run: set -e SANITY_AUTH_TOKEN="${{ secrets.SANITY_AUTH_TOKEN }}" pnpm run deploy

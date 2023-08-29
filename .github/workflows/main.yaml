@@ -14,17 +14,6 @@ defaults:
     working-directory: ./vinoa-web
 
 jobs:
-  deploy:
-    runs-on: ubuntu-latest
-    name: Deploy Sanity
-    steps:
-      - uses: actions/checkout@v2
-      - uses: sanity-io/github-action-sanity@v0.2-alpha
-        env:
-          SANITY_AUTH_TOKEN: ${{ secrets.SANITY_AUTH_TOKEN }}
-        with:
-          args: deploy
-
   build-and-test:
     runs-on: ubuntu-latest
 
