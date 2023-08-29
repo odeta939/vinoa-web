@@ -6,26 +6,26 @@ on:
   pull_request:
     branches: ['main']
 
-jobs:
-  build-and-deploy:
-    runs-on: ubuntu-latest
-  steps:
-      uses: actions/checkout@v2
+  jobs:
+    build-and-deploy:
+      runs-on: ubuntu-latest
+    steps:
+        uses: actions/checkout@v2
 
-    - name: Install Node.js
-      uses: actions/setup-node@v1
-      with:
-        node-version: '17.x'
+      - name: Install Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: '17.x'
 
-    - name: Install dependencies
-      run: pnpm install
+      - name: Install dependencies
+        run: pnpm install
 
-    - name: Install Sanity CLI
-      run: pnpm install -g @sanity/cli
-    - name: Build Studio
-      run: pnpm run build
-      working-directory: ./wine-tastery
+      - name: Install Sanity CLI
+        run: pnpm install -g @sanity/cli
+      - name: Build Studio
+        run: pnpm run build
+        working-directory: ./wine-tastery
 
-    - name: Deploy Sanity
-      run: pnpm run deploy --token ${{ secrets.SANITY_AUTH_TOKEN }} --dataset production --yes
-      working-directory: ./wine-tastery
+      - name: Deploy Sanity
+        run: pnpm run deploy --token ${{ secrets.SANITY_AUTH_TOKEN }} --dataset production --yes
+        working-directory: ./wine-tastery
