@@ -2,6 +2,8 @@ name: Deploy Sanity
 on:
   push:
     branches: [main]
+  pull_request:
+    branches: ['main']
 jobs:
   sanity-deploy:
     runs-on: ubuntu-latest
