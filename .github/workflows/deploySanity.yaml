@@ -11,13 +11,15 @@ defaults:
     working-directory: ./wine-tastery
 
 jobs:
-  sanity-deploy:
+  deploy:
     runs-on: ubuntu-latest
-    name: Deploy Sanity
-    steps:
-      - uses: actions/checkout@v2
-      - uses: sanity-io/github-action-sanity@v0.2-alpha
-        env:
-          SANITY_AUTH_TOKEN: ${{ secrets.SANITY_AUTH_TOKEN }}
-        with:
-          args: deploy
+
+  name: Deploy Sanity
+  steps:
+    - uses: actions/checkout@v2
+
+    - name: Install dependencies
+      run: pnpm install
+
+    - name: Deploy Sanity Studio
+      run: pnpm run deploy
