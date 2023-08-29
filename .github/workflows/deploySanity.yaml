@@ -11,15 +11,24 @@ defaults:
     working-directory: ./wine-tastery
 
 jobs:
-  deploy:
+  build-and-deploy:
     runs-on: ubuntu-latest
-
-  - name: Deploy Sanity
   steps:
-    - uses: actions/checkout@v2
+    - name: Checkout Code
+      uses: actions/checkout@v2
+
+    - name: Install Node.js
+      uses: actions/setup-node@v1
+      with:
+        node-version: '17.x'
 
     - name: Install dependencies
       run: pnpm install
 
-    - name: Deploy Sanity Studio
-      run: set -e SANITY_AUTH_TOKEN="${{ secrets.SANITY_AUTH_TOKEN }}" pnpm run deploy
+    - name: Install Sanity CLI
+      run: pnpm install -g @sanity/cli
+    - name: Build Studio
+      run: pnpm run build
+
+    - name: Deploy Sanity
+      run: pnpm run deploy --token ${{ secrets.SANITY_AUTH_TOKEN }} --dataset production --yes
