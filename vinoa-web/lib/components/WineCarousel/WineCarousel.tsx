@@ -1,5 +1,10 @@
 'use client';
-import { ArrowLeftIcon, ArrowRightIcon } from '@heroicons/react/24/solid';
+import {
+  ArrowLeftIcon,
+  ArrowRightIcon,
+  ChevronRightIcon,
+  ChevronLeftIcon,
+} from '@heroicons/react/24/outline';
 
 import 'swiper/css';
 import { Keyboard, Navigation } from 'swiper/modules';
@@ -9,21 +14,19 @@ import WineCard from '@/lib/components/WineCard/WineCard';
 const WineCarousel = () => {
   return (
     <>
-      <section className='py-16 bg-violet-darker shrink'>
-        <div className='flex w-full justify-between'>
-          <div className='flex items-center gap-12'>
+      <section className='bg-violet-darker relative'>
+        <div className='absolute z-10 h-full flex justify-between w-full inset-y-0 top-0'>
+          {/* <div className='flex items-center z-0 gap-12'>
             <h2>Wines tasted before:</h2>
-          </div>
-          <div className='flex justify-end gap-3'>
-            <button className='swiper-button image-swiper-button-prev bg-blue-lighter inline-flex h-10 w-10  place-content-center items-center rounded-full'>
-              <ArrowLeftIcon className='h-4 w-4' />
-            </button>
-            <button className='swiper-button image-swiper-button-next bg-blue-lighter flex h-10 w-10  place-content-center items-center rounded-full'>
-              <ArrowRightIcon className='h-4 w-4' />
-            </button>
-          </div>
-        </div>
+          </div> */}
 
+          <button className='bg-gradient-to-r from-violet-darker/80 from-50%  to-violet-darker/0 swiper-button image-swiper-button-prev self-center flex h-full w-24 place-content-center items-center '>
+            <ChevronLeftIcon className='h-20 w-20 text-grey-highlight' />
+          </button>
+          <button className='bg-gradient-to-l from-violet-darker/80 from-50% to-violet-darker/0 swiper-button image-swiper-button-next flex h-full w-24 place-self-end self-center justify-self-end place-content-center items-center '>
+            <ChevronRightIcon className='h-20 w-20 text-grey-highlight' />
+          </button>
+        </div>
         <Swiper
           slidesPerView={2.3}
           spaceBetween={60}
