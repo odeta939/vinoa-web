@@ -13,6 +13,3 @@ body {
 nav {
   @apply bg-violet-darker;
 }
-button {
-  @apply bg-gold-highlight;
-}
