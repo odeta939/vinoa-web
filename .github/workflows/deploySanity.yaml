@@ -22,7 +22,7 @@ jobs:
       - name: Deploy Sanity
         env:
           SANITY_AUTH_TOKEN: ${{ secrets.SANITY_AUTH_TOKEN }}
-        run: pnpm install -g @sanity/cli &&
+        run: npm install -g @sanity/cli &&
           sanity install &&
           SANITY_AUTH_TOKEN=$SANITY_AUTH_TOKEN &&
           sanity deploy
