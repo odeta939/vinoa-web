@@ -67,14 +67,7 @@ export default defineType({
             name: 'wineRatings',
             title: 'Wine Ratings',
             type: 'array',
-            of: [
-                defineField({
-                    name: 'wineRating',
-                    type: rating.type,
-                    validation: Rule => Rule.min(1).max(5)
-                })
-            ]
-            
+            of: [{type: 'reference', to:{type:'rating'}} ]
         })
 
     ]
