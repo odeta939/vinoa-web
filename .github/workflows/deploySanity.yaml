@@ -6,7 +6,7 @@ on:
     branches: ['main']
 defaults:
   run:
-    working-directory: ./wine-tastery
+    working-directory: /wine-tastery
 jobs:
   sanity-deploy:
     runs-on: ubuntu-latest
