@@ -1,9 +1,10 @@
 import {defineType, defineField} from 'sanity'
-
+import {BiCommentAdd} from 'react-icons/Bi'
 export default defineType({
   name: 'rating',
   title: 'Wine Rating',
   type: 'document',
+  icon: BiCommentAdd,
   fields: [
     defineField({
       name: 'rating',
@@ -15,6 +16,12 @@ export default defineType({
       name: 'review',
       title: 'Review',
       type: 'string'
+    }),
+    defineField({
+      name: 'wine',
+      title: 'Wine',
+      type: 'reference',
+      to: {type: 'wine'}
     }),
   ]
 })

@@ -1,5 +1,4 @@
 import {defineField, defineType} from 'sanity'
-import rating from './rating'
 import {GiWineBottle} from 'react-icons/Gi'
 
 export default defineType({

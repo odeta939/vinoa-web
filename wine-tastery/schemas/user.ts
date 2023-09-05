@@ -1,13 +1,20 @@
 import {defineField, defineType} from 'sanity'
+import {BiUser} from 'react-icons/bi'
 
 export default defineType({
-  name: 'author',
-  title: 'Author',
+  name: 'user',
+  title: 'User',
   type: 'document',
+  icon: BiUser,
   fields: [
     defineField({
       name: 'name',
       title: 'Name',
+      type: 'string',
+    }),
+    defineField({
+      name: 'email',
+      title: 'Email',
       type: 'string',
     }),
     defineField({
@@ -28,17 +35,16 @@ export default defineType({
       },
     }),
     defineField({
-      name: 'bio',
-      title: 'Bio',
+      name: 'rating',
+      title: 'Rating',
       type: 'array',
-      of: [
-        {
-          title: 'Block',
-          type: 'block',
-          styles: [{title: 'Normal', value: 'normal'}],
-          lists: [],
-        },
-      ],
+      of: [{type: 'reference', to: {type: 'rating'}}],
+    }),
+    defineField({
+      name: 'tastedWines',
+      title: 'Tasted Wines',
+      type: 'array',
+      of: [{type: 'reference', to: {type: 'wine'}}],
     }),
   ],
   preview: {
