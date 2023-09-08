@@ -16,24 +16,13 @@ jobs:
         node-version: [14.x]
     name: Deploy Sanity
     steps:
-      - uses: pnpm/action-setup@v2.0.1
-        name: Install pnpm
-        id: pnpm-install
-        with:
-          version: 7
-          run_install: false
-      - name: Get pnpm store directory
-        id: pnpm-cache
-        run: |
-          echo "::set-output name=pnpm_cache_dir::$(pnpm store path)"
-
       - uses: actions/checkout@v3
       - name: Install dependensies
-        run: pnpm install
+        run: npm install
       - name: Deploy Sanity
         env:
           SANITY_AUTH_TOKEN: ${{ secrets.SANITY_AUTH_TOKEN }}
-        run: pnpm install -g @sanity/cli &&
+        run: npm install -g @sanity/cli &&
           sanity install &&
           SANITY_AUTH_TOKEN=$SANITY_AUTH_TOKEN &&
           sanity deploy
