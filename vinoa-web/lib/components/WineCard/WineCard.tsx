@@ -19,7 +19,7 @@ const WineCard = ({
   taste,
 }: WineCardProps) => {
   return (
-    <div className='bg-violet-dark p-14 flex flex-row'>
+    <div className='bg-violet-dark m-4 p-4 flex flex-row'>
       <div>
         <Image
           width={160}
