@@ -1,23 +1,8 @@
 'use client';
 import Image from 'next/image';
 
-interface WineCardProps {
-  wineName: string;
-  country: string;
-  region: string;
-  color: string;
-  smell: string;
-  taste: string;
-}
-
-const WineCard = ({
-  wineName,
-  country,
-  region,
-  color,
-  smell,
-  taste,
-}: WineCardProps) => {
+// TODO - is it better to send in the Wine object or the individual properties?
+const WineCard = ({ name, country, region, colour, smell, taste }: Wine) => {
   return (
     <div className='bg-violet-dark m-4 p-4 flex flex-row'>
       <div>
@@ -31,11 +16,11 @@ const WineCard = ({
         <p>1/5</p>
       </div>
       <div className='px-5'>
-        <h1 className='text-2xl pb-4'>{wineName}</h1>
+        <h1 className='text-2xl pb-4'>{name}</h1>
         <div className='flex flex-col grow h-auto'>
           <p>Country: {country}</p>
           <p>Region: {region}</p>
-          <p>Color: {color}</p>
+          <p>Color: {colour}</p>
           <p>Smell: {smell}</p>
           <p>Taste: {taste}</p>
         </div>
