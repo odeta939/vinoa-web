@@ -21,7 +21,7 @@ const Navigation = () => {
             <a href='#'>Todays tasting</a>
           </li>
           <li className='hover:underline underline-offset-4'>
-            <a href='#'>Wine rating</a>
+            <a href='/wines'>Wines</a>
           </li>
           <li>
             <a href='/profile'>
