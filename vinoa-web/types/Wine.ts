@@ -1,8 +1,9 @@
 type Wine = {
+  _id: string;
   name: string;
-  // slug?: {slug: string};
-  // image?: {asset: {url: string}};
-  // tastedAt?: Date;
+  slug: string;
+  image?: string;
+  // dateOfTasting?: Date;
   country: string;
   region: string;
   smell: string;
