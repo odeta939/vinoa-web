@@ -11,7 +11,12 @@ import { Keyboard, Navigation } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import WineCard from '@/lib/components/WineCard/WineCard';
 
-const WineCarousel = () => {
+interface WineProps {
+  wines: Wine[];
+}
+
+const WineCarousel = ({ wines }: WineProps) => {
+  console.log(wines);
   return (
     <>
       <section className='bg-violet-darker relative'>
@@ -42,96 +47,18 @@ const WineCarousel = () => {
           modules={[Navigation, Keyboard]}
           className='mySwiper'
         >
-          <SwiperSlide>
-            <WineCard
-              wineName='Wine A'
-              country='Italy'
-              region='Tuscany'
-              color='Red'
-              smell='Fruity'
-              taste='Dry'
-            />
-          </SwiperSlide>
-          <SwiperSlide>
-            <WineCard
-              wineName='Wine B'
-              country='Italy'
-              region='Tuscany'
-              color='Red'
-              smell='Fruity'
-              taste='Dry'
-            />
-          </SwiperSlide>
-          <SwiperSlide>
-            <WineCard
-              wineName='Wine C'
-              country='Italy'
-              region='Tuscany'
-              color='Red'
-              smell='Fruity'
-              taste='Dry'
-            />
-          </SwiperSlide>
-          <SwiperSlide>
-            <WineCard
-              wineName='Wine D'
-              country='Italy'
-              region='Tuscany'
-              color='Red'
-              smell='Fruity'
-              taste='Dry'
-            />
-          </SwiperSlide>
-          <SwiperSlide>
-            <WineCard
-              wineName='Wine E'
-              country='Italy'
-              region='Tuscany'
-              color='Red'
-              smell='Fruity'
-              taste='Dry'
-            />
-          </SwiperSlide>
-          <SwiperSlide>
-            <WineCard
-              wineName='Wine F'
-              country='Italy'
-              region='Tuscany'
-              color='Red'
-              smell='Fruity'
-              taste='Dry'
-            />
-          </SwiperSlide>
-          <SwiperSlide>
-            <WineCard
-              wineName='Wine G'
-              country='Italy'
-              region='Tuscany'
-              color='Red'
-              smell='Fruity'
-              taste='Dry'
-            />
-          </SwiperSlide>
-          <SwiperSlide>
-            <WineCard
-              wineName='Wine H'
-              country='Italy'
-              region='Tuscany'
-              color='Red'
-              smell='Fruity'
-              taste='Dry'
-            />
-          </SwiperSlide>
-          <SwiperSlide>
-            <WineCard
-              wineName='Wine I'
-              country='Italy'
-              region='Tuscany'
-              color='Red'
-              smell='Fruity'
-              taste='Dry'
-            />
-          </SwiperSlide>
+          {wines.map((wine, idx) => (
+            <SwiperSlide key={idx}>
+              <WineCard
+                name={wine.name}
+                country={wine.country}
+                region={wine.region}
+                colour={wine.colour}
+                smell={wine.smell}
+                taste={wine.taste}
+              />
+            </SwiperSlide>
+          ))}
         </Swiper>
       </section>
     </>
