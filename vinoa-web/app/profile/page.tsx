@@ -13,37 +13,37 @@ const Profile = () => {
 
       <div className='bg-grey-highlight p-14 grid xl:grid-cols-4 lg:grid-cols-2 md:grid-cols-1'>
         <WineCard
-          wineName='Barbera'
+          name='Barbera'
           country='Italy'
           region='Piemonte'
-          color='red'
+          colour='red'
           smell='fruity'
           taste='red berries'
         ></WineCard>
 
         <WineCard
-          wineName='Barbera'
+          name='Barbera'
           country='Italy'
           region='Piemonte'
-          color='red'
+          colour='red'
           smell='fruity'
           taste='red berries'
         ></WineCard>
 
         <WineCard
-          wineName='Barbera'
+          name='Barbera'
           country='Italy'
           region='Piemonte'
-          color='red'
+          colour='red'
           smell='fruity'
           taste='red berries'
         ></WineCard>
 
         <WineCard
-          wineName='Barbera'
+          name='Barbera'
           country='Italy'
           region='Piemonte'
-          color='red'
+          colour='red'
           smell='fruity'
           taste='red berries'
         ></WineCard>
