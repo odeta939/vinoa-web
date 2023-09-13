@@ -1,5 +1,5 @@
 import {defineType, defineField} from 'sanity'
-import {BiCommentAdd} from 'react-icons/Bi'
+import {BiCommentAdd} from 'react-icons/bi'
 export default defineType({
   name: 'rating',
   title: 'Wine Rating',

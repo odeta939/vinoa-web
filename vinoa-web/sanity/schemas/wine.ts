@@ -1,5 +1,5 @@
 import {defineField, defineType} from 'sanity'
-import {GiWineBottle} from 'react-icons/Gi'
+import {GiWineBottle} from 'react-icons/gi'
 
 export default defineType({
     name: 'wine',
