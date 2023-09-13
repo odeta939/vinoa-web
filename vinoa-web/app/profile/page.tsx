@@ -11,43 +11,7 @@ const Profile = () => {
         <BsPencilFill />
       </div>
 
-      <div className='bg-grey-highlight p-14 grid xl:grid-cols-4 lg:grid-cols-2 md:grid-cols-1'>
-        <WineCard
-          name='Barbera'
-          country='Italy'
-          region='Piemonte'
-          colour='red'
-          smell='fruity'
-          taste='red berries'
-        ></WineCard>
-
-        <WineCard
-          name='Barbera'
-          country='Italy'
-          region='Piemonte'
-          colour='red'
-          smell='fruity'
-          taste='red berries'
-        ></WineCard>
-
-        <WineCard
-          name='Barbera'
-          country='Italy'
-          region='Piemonte'
-          colour='red'
-          smell='fruity'
-          taste='red berries'
-        ></WineCard>
-
-        <WineCard
-          name='Barbera'
-          country='Italy'
-          region='Piemonte'
-          colour='red'
-          smell='fruity'
-          taste='red berries'
-        ></WineCard>
-      </div>
+      <div className='bg-grey-highlight p-14 grid xl:grid-cols-4 lg:grid-cols-2 md:grid-cols-1'></div>
     </div>
   );
 };
