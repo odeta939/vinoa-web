@@ -15,15 +15,11 @@ const WineCarousel = ({ wines }: WineProps) => {
   return (
     <>
       <section className='bg-violet-darker relative'>
-        <div className='absolute z-10 h-full flex justify-between w-full inset-y-0 top-0'>
-          {/* <div className='flex items-center z-0 gap-12'>
-            <h2>Wines tasted before:</h2>
-          </div> */}
-
-          <button className='bg-gradient-to-r from-violet-darker/80 from-50%  to-violet-darker/0 swiper-button image-swiper-button-prev self-center flex h-full w-24 place-content-center items-center '>
+        <div className='absolute z-10 h-full pointer-events-none flex justify-between w-full inset-y-0 top-0'>
+          <button className='bg-gradient-to-r from-violet-darker/80 from-50% pointer-events-auto to-violet-darker/0 swiper-button image-swiper-button-prev self-center flex h-full w-24 place-content-center items-center '>
             <AiOutlineArrowLeft className='h-20 w-20 text-grey-highlight' />
           </button>
-          <button className='bg-gradient-to-l from-violet-darker/80 from-50% to-violet-darker/0 swiper-button image-swiper-button-next flex h-full w-24 place-self-end self-center justify-self-end place-content-center items-center '>
+          <button className='bg-gradient-to-l from-violet-darker/80 from-50% to-violet-darker/0 pointer-events-auto swiper-button image-swiper-button-next flex h-full w-24 place-self-end self-center justify-self-end place-content-center items-center '>
             <AiOutlineArrowRight className='h-20 w-20 text-grey-highlight' />
           </button>
         </div>
