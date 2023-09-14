@@ -1,17 +1,21 @@
-import getWines from '@/lib/api/queries/sanityQueries';
+import WineCard from '@/lib/components/WineCard';
+import { getWines } from '@/sanity/sanity-utils';
+import Link from 'next/link';
 
-const WinePage = async () => {
+const WinesPage = async () => {
   const wines: Wine[] = await getWines();
   return (
     <div>
       <h1>Wine Page</h1>
       <ul>
-        {wines.map((wine, idx) => (
-          <li key={idx}>{wine.name}</li>
+        {wines.map((wine) => (
+          <Link href={`/wine/${wine.slug}`} key={wine._id}>
+            <WineCard wine={wine}></WineCard>
+          </Link>
         ))}
       </ul>
     </div>
   );
 };
 
-export default WinePage;
+export default WinesPage;

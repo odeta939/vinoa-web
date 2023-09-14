@@ -1,22 +1,17 @@
 'use client';
-import {
-  ArrowLeftIcon,
-  ArrowRightIcon,
-  ChevronRightIcon,
-  ChevronLeftIcon,
-} from '@heroicons/react/24/outline';
+import { AiOutlineArrowRight, AiOutlineArrowLeft } from 'react-icons/ai';
 
 import 'swiper/css';
 import { Keyboard, Navigation } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import WineCard from '@/lib/components/WineCard/WineCard';
+import Link from 'next/link';
 
 interface WineProps {
   wines: Wine[];
 }
 
 const WineCarousel = ({ wines }: WineProps) => {
-  console.log(wines);
   return (
     <>
       <section className='bg-violet-darker relative'>
@@ -26,10 +21,10 @@ const WineCarousel = ({ wines }: WineProps) => {
           </div> */}
 
           <button className='bg-gradient-to-r from-violet-darker/80 from-50%  to-violet-darker/0 swiper-button image-swiper-button-prev self-center flex h-full w-24 place-content-center items-center '>
-            <ChevronLeftIcon className='h-20 w-20 text-grey-highlight' />
+            <AiOutlineArrowLeft className='h-20 w-20 text-grey-highlight' />
           </button>
           <button className='bg-gradient-to-l from-violet-darker/80 from-50% to-violet-darker/0 swiper-button image-swiper-button-next flex h-full w-24 place-self-end self-center justify-self-end place-content-center items-center '>
-            <ChevronRightIcon className='h-20 w-20 text-grey-highlight' />
+            <AiOutlineArrowRight className='h-20 w-20 text-grey-highlight' />
           </button>
         </div>
         <Swiper
@@ -47,16 +42,9 @@ const WineCarousel = ({ wines }: WineProps) => {
           modules={[Navigation, Keyboard]}
           className='mySwiper'
         >
-          {wines.map((wine, idx) => (
-            <SwiperSlide key={idx}>
-              <WineCard
-                name={wine.name}
-                country={wine.country}
-                region={wine.region}
-                colour={wine.colour}
-                smell={wine.smell}
-                taste={wine.taste}
-              />
+          {wines.map((wine) => (
+            <SwiperSlide key={wine._id}>
+              <WineCard wine={wine} />
             </SwiperSlide>
           ))}
         </Swiper>
