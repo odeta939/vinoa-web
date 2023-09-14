@@ -1,4 +1,4 @@
-import WineCard from '@/lib/components/WineCard';
+import WineCard from '@/components/WineCard';
 import { getWines } from '@/sanity/sanity-utils';
 import Link from 'next/link';
 

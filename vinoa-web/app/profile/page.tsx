@@ -1,5 +1,5 @@
 import ProfileLogo from '@/lib/assets/ProfileLogo';
-import WineCard from '@/lib/components/WineCard';
+import WineCard from '@/components/WineCard';
 import { BsPencilFill } from 'react-icons/bs';
 
 const Profile = () => {
