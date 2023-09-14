@@ -37,3 +37,25 @@ export async function getWine(slug : string): Promise<Wine> {
 
   return wine;
 }
+
+export async function getRatings(): Promise<Array<Rating>> {
+  const ratings : Array<Rating> = await sanityClient.fetch(groq`*[_type == "rating"]{
+    _id,
+    rating,
+    review,
+    "wine" : wine->slug.current,
+  }`);
+
+  return ratings;
+}
+
+export async function getAllRatingsForWine(slug: string) : Promise<Array<Rating>> {
+  const ratings : Array<Rating> = await sanityClient.fetch(groq`*[_type == "rating" && wine->slug.current == $slug]{
+    _id,
+    rating,
+    review,
+  }`,{slug});
+
+  return ratings;
+}
+
