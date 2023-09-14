@@ -3,10 +3,11 @@ type Wine = {
   name: string;
   slug: string;
   image?: string;
-  // dateOfTasting?: Date;
+  dateOfTasting: Date;
   country: string;
   region: string;
   smell: string;
   taste: string;
   colour: string;
+  rating: Rating[];
 }
