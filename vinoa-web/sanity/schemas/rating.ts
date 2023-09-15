@@ -19,9 +19,9 @@ export default defineType({
     }),
     defineField({
       name: 'wine',
-      title: 'Wine',
+      title: 'Wine rating',
       type: 'reference',
-      to: {type: 'wine'}
+      to: [{type: 'wine'}],
     }),
-  ]
+  ],
 })

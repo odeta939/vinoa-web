@@ -9,5 +9,5 @@ type Wine = {
   smell: string;
   taste: string;
   colour: string;
-  rating: Rating[];
+  users: User[];
 }

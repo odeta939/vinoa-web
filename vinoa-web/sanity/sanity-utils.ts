@@ -59,3 +59,24 @@ export async function getAllRatingsForWine(slug: string) : Promise<Array<Rating>
   return ratings;
 }
 
+export async function getUser(email : string) :Promise<User> {
+  const user  = await sanityClient.fetch(groq`*[_type == "user" && email == $email][0]{
+    name,
+    email,
+    "slug" : slug.current,
+    "image" : image.asset->url,
+    "wines" : *[_type == "wine" && references(^._id)][]{
+      _id,
+    name,
+    "slug" : slug.current,
+    "image" : mainImage.asset->url,
+    country,
+    region,
+    smell,
+    taste,
+    colour,
+    }
+  }`,{email});
+
+  return user;
+}
