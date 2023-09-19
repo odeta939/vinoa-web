@@ -7,10 +7,10 @@ module.exports = {
   ],
   theme: {
     extend: {
-      fontFamily: {
-        sans: ['Inter', 'sans-serif'],
-        serif: ['Merriweather', 'serif'],
-      },
+      // fontFamily: {
+      //   sans: ['Julius Sans One', 'sans-serif'],
+      //   serif: ['Merriweather', 'serif'],
+      // },
       colors: {
         'gold-highlight': '#FFBB56',
         'grey-highlight': '#BCBACF',

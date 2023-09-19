@@ -35,7 +35,8 @@ export default defineType({
           name: 'dateOfTasting',
           title: 'Tasted at',
           type: 'datetime',
-          validation: Rule => Rule.required()
+          validation: Rule => Rule.required(),
+          initialValue: () => (new Date()).toISOString(),
         }),
         defineField({
             name: 'country',
@@ -63,10 +64,10 @@ export default defineType({
             type: 'string'
         }),
         defineField({
-            name: 'wineRatings',
-            title: 'Wine Ratings',
+            name: 'users',
+            title: 'People who tasted this wine',
             type: 'array',
-            of: [{type: 'reference', to:{type:'rating'}} ]
+            of: [{type: 'reference', to:{type:'user'}} ]
         })
 
     ]

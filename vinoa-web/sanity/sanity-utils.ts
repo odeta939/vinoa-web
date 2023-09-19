@@ -33,7 +33,10 @@ export async function getWine(slug : string): Promise<Wine> {
     taste,
     colour,
 
-  }`,{slug})
+  }`,{slug}
+  , {
+    cache: 'no-store',
+  })
 
   return wine;
 }
@@ -44,7 +47,9 @@ export async function getRatings(): Promise<Array<Rating>> {
     rating,
     review,
     "wine" : wine->slug.current,
-  }`);
+  }`, {
+    cache: 'no-store',
+  });
 
   return ratings;
 }
@@ -54,8 +59,33 @@ export async function getAllRatingsForWine(slug: string) : Promise<Array<Rating>
     _id,
     rating,
     review,
-  }`,{slug});
+  }`,{slug}, {
+    cache: 'no-store',
+  });
 
   return ratings;
 }
 
+export async function getUser(email : string) :Promise<User> {
+  const user  = await sanityClient.fetch(groq`*[_type == "user" && email == $email][0]{
+    name,
+    email,
+    "slug" : slug.current,
+    "image" : image.asset->url,
+    "wines" : *[_type == "wine" && references(^._id)][]{
+      _id,
+    name,
+    "slug" : slug.current,
+    "image" : mainImage.asset->url,
+    country,
+    region,
+    smell,
+    taste,
+    colour,
+    }
+  }`,{email}, {
+    cache: 'no-store',
+  });
+
+  return user;
+}

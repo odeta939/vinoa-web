@@ -34,18 +34,6 @@ export default defineType({
         hotspot: true,
       },
     }),
-    defineField({
-      name: 'rating',
-      title: 'Rating',
-      type: 'array',
-      of: [{type: 'reference', to: {type: 'rating'}}],
-    }),
-    defineField({
-      name: 'tastedWines',
-      title: 'Tasted Wines',
-      type: 'array',
-      of: [{type: 'reference', to: {type: 'wine'}}],
-    }),
   ],
   preview: {
     select: {

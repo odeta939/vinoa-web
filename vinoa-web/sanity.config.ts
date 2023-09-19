@@ -1,6 +1,7 @@
 import {defineConfig} from 'sanity'
 import {deskTool} from 'sanity/desk'
 import schemas from './sanity/schemas'
+import { visionTool } from '@sanity/vision'
 
 
 const config = defineConfig({
@@ -8,8 +9,9 @@ const config = defineConfig({
   projectId: '9thjj5x6',
   dataset: 'production',
   basePath: '/admin',
+  apiVersion: '2023-09-15', // use a UTC date string
 
-  plugins: [deskTool()],
+  plugins: [deskTool(), visionTool()],
 
   schema: {types: schemas}
 })
