@@ -2,6 +2,8 @@ import WineCard from '@/components/WineCard';
 import { getWines } from '@/sanity/sanity-utils';
 import Link from 'next/link';
 
+export const dynamic = 'force-dynamic';
+
 const WinesPage = async () => {
   const wines: Wine[] = await getWines();
   return (

@@ -33,7 +33,10 @@ export async function getWine(slug : string): Promise<Wine> {
     taste,
     colour,
 
-  }`,{slug})
+  }`,{slug}
+  , {
+    cache: 'no-store',
+  })
 
   return wine;
 }
@@ -44,7 +47,9 @@ export async function getRatings(): Promise<Array<Rating>> {
     rating,
     review,
     "wine" : wine->slug.current,
-  }`);
+  }`, {
+    cache: 'no-store',
+  });
 
   return ratings;
 }
@@ -54,7 +59,9 @@ export async function getAllRatingsForWine(slug: string) : Promise<Array<Rating>
     _id,
     rating,
     review,
-  }`,{slug});
+  }`,{slug}, {
+    cache: 'no-store',
+  });
 
   return ratings;
 }
@@ -76,7 +83,9 @@ export async function getUser(email : string) :Promise<User> {
     taste,
     colour,
     }
-  }`,{email});
+  }`,{email}, {
+    cache: 'no-store',
+  });
 
   return user;
 }

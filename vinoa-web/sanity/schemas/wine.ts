@@ -35,7 +35,8 @@ export default defineType({
           name: 'dateOfTasting',
           title: 'Tasted at',
           type: 'datetime',
-          // validation: Rule => Rule.required()
+          validation: Rule => Rule.required(),
+          initialValue: () => (new Date()).toISOString(),
         }),
         defineField({
             name: 'country',
