@@ -2,6 +2,7 @@ import {defineConfig} from 'sanity'
 import {deskTool} from 'sanity/desk'
 import schemas from './sanity/schemas'
 import { visionTool } from '@sanity/vision'
+import { unsplashImageAsset } from 'sanity-plugin-asset-source-unsplash'
 
 
 const config = defineConfig({
@@ -11,7 +12,7 @@ const config = defineConfig({
   basePath: '/admin',
   apiVersion: '2023-09-15', // use a UTC date string
 
-  plugins: [deskTool(), visionTool()],
+  plugins: [deskTool(), visionTool(), unsplashImageAsset()],
 
   schema: {types: schemas}
 })
