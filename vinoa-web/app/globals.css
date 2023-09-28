@@ -6,7 +6,7 @@ html {
   @apply text-grey-highlight;
 }
 body {
-  @apply bg-violet-dark;
+  @apply bg-violet-light;
 
   min-height: 100vh;
 }

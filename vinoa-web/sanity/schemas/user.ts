@@ -1,5 +1,5 @@
-import {defineField, defineType} from 'sanity'
-import {BiUser} from 'react-icons/bi'
+import { defineField, defineType } from 'sanity';
+import { BiUser } from 'react-icons/bi';
 
 export default defineType({
   name: 'user',
@@ -41,4 +41,4 @@ export default defineType({
       media: 'image',
     },
   },
-})
+});

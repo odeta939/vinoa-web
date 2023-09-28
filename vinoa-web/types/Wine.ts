@@ -2,7 +2,8 @@ type Wine = {
   _id: string;
   name: string;
   slug: string;
-  image?: string;
+  description: string;
+  imageUrl: string;
   dateOfTasting: Date;
   country: string;
   region: string;
@@ -10,4 +11,4 @@ type Wine = {
   taste: string;
   colour: string;
   users: User[];
-}
+};

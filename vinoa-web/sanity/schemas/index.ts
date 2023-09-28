@@ -1,6 +1,6 @@
-import rating from "./rating";
-import user from "./user";
-import wine from "./wine";
+import rating from './rating';
+import user from './user';
+import wine from './wine';
 
 const schemas = [rating, user, wine];
 

@@ -1,11 +1,9 @@
 'use client';
 import { AiOutlineArrowRight, AiOutlineArrowLeft } from 'react-icons/ai';
-
 import 'swiper/css';
 import { Keyboard, Navigation } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import WineCard from '@/components/WineCard/WineCard';
-import Link from 'next/link';
 
 interface WineProps {
   wines: Wine[];

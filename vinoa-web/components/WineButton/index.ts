@@ -1,2 +1,2 @@
-import WineButton from "./WineButton";
+import WineButton from './WineButton';
 export default WineButton;

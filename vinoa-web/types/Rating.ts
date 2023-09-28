@@ -1,5 +1,5 @@
 type Rating = {
-    rating: number,
-    review: string,
-    wine: string
-}
+  rating: number;
+  review: string;
+  wine: string;
+};
