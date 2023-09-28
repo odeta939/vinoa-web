@@ -1,7 +1,7 @@
-import ComentSection from "@/components/ComentSection";
-import Rating from "@/components/Rating";
-import { getWine } from "@/sanity/sanity-utils";
-import Image from "next/image";
+import ComentSection from '@/components/ComentSection';
+import Rating from '@/components/Rating';
+import { getWine } from '@/sanity/sanity-utils';
+import Image from 'next/image';
 
 interface Props {
   params: { slug: string };
@@ -11,24 +11,24 @@ const WinePage = async ({ params }: Props) => {
   const slug = params.slug;
   const wine = await getWine(slug);
   return (
-    <div className=" mt-10">
-      <div className="grid grid-flow-col grid-cols-6 justify-items-end gap-4 ">
-        <div className="col-start-2  ">
+    <div className=' mt-10'>
+      <div className='grid grid-flow-col grid-cols-6 justify-items-end gap-4 '>
+        <div className='col-start-2  '>
           <Image
             width={160}
             height={180}
-            alt="Image of a wine bottle"
+            alt='Image of a wine bottle'
             src={wine.imageUrl}
           />
-          <Rating lable="Tasted by 5 people" />
+          <Rating label='Tasted by 5 people' />
         </div>
 
-        <div className="col-start-3 col-span-3 ">
-          <h1 className="text-2xl font-medium">{wine.name}</h1>
+        <div className='col-start-3 col-span-3 '>
+          <h1 className='text-2xl font-medium'>{wine.name}</h1>
           <p>{wine.description}</p>
         </div>
       </div>
-      <div className="bg-violet-dark mx-14 mt-8">
+      <div className='bg-violet-dark mx-14 mt-8'>
         <ComentSection />
       </div>
     </div>

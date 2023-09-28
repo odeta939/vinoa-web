@@ -1,2 +1,2 @@
-import WineCarousel from "./WineCarousel";
+import WineCarousel from './WineCarousel';
 export default WineCarousel;
