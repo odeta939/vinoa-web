@@ -1,5 +1,5 @@
-import sanityClient from "@/sanity/sanityClient";
-import { groq } from "next-sanity";
+import sanityClient from '@/sanity/sanityClient';
+import { groq } from 'next-sanity';
 
 export async function getWines(): Promise<Array<Wine>> {
   const wines: Array<Wine> = await sanityClient.fetch(
@@ -16,7 +16,7 @@ export async function getWines(): Promise<Array<Wine>> {
 
   }`,
     {
-      cache: "no-store",
+      cache: 'no-store',
     }
   );
 
@@ -40,7 +40,7 @@ export async function getWine(slug: string): Promise<Wine> {
   }`,
     { slug },
     {
-      cache: "no-store",
+      cache: 'no-store',
     }
   );
 
@@ -56,7 +56,7 @@ export async function getRatings(): Promise<Array<Rating>> {
     "wine" : wine->slug.current,
   }`,
     {
-      cache: "no-store",
+      cache: 'no-store',
     }
   );
 
@@ -74,7 +74,7 @@ export async function getAllRatingsForWine(
   }`,
     { slug },
     {
-      cache: "no-store",
+      cache: 'no-store',
     }
   );
 
@@ -102,7 +102,7 @@ export async function getUser(email: string): Promise<User> {
   }`,
     { email },
     {
-      cache: "no-store",
+      cache: 'no-store',
     }
   );
 
