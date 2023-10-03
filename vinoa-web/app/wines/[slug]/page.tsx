@@ -1,5 +1,4 @@
-import ComentSection from '@/components/ComentSection';
-import Rating from '@/components/Rating';
+import CommentSection from '@/components/CommentSection';
 import { getWine } from '@/sanity/sanity-utils';
 import Image from 'next/image';
 
@@ -20,7 +19,7 @@ const WinePage = async ({ params }: Props) => {
             alt='Image of a wine bottle'
             src={wine.imageUrl}
           />
-          <Rating label='Tasted by 5 people' />
+          {/* <Rating label='Tasted by 5 people' /> */}
         </div>
 
         <div className='col-start-3 col-span-3 '>
@@ -29,7 +28,7 @@ const WinePage = async ({ params }: Props) => {
         </div>
       </div>
       <div className='bg-violet-dark mx-14 mt-8'>
-        <ComentSection />
+        <CommentSection />
       </div>
     </div>
   );
