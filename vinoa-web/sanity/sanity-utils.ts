@@ -108,3 +108,25 @@ export async function getUser(email: string): Promise<User> {
 
   return user;
 }
+
+export async function getThisMonthsWines(dateFrom: string, dateTo: string) {
+  const wines: Array<Wine> = await sanityClient.fetch(
+    groq`*[_type == "wine" && dateOfTasting >= $dateFrom && dateOfTasting <= $dateTo]{
+    _id,
+    name,
+    "slug" : slug.current,
+    "imageUrl" : mainImage.asset->url,
+    country,
+    region,
+    smell,
+    taste,
+    colour,
+  }`,
+    { dateFrom, dateTo },
+    {
+      cache: 'no-store',
+    }
+  );
+
+  return wines;
+}

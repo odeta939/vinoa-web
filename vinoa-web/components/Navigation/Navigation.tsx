@@ -17,7 +17,7 @@ const Navigation = () => {
             <Link href={'/'}>Home</Link>
           </li>
           <li className='hover:underline underline-offset-4'>
-            <Link href='#'>Month&#39;s wine</Link>
+            <Link href='/monthsWine'>Month&#39;s wine</Link>
           </li>
           <li className='hover:underline underline-offset-4'>
             <Link href='/wines'>Wines</Link>
