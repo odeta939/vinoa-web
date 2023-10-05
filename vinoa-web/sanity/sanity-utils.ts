@@ -1,8 +1,17 @@
-import sanityClient from '@/sanity/sanityClient';
 import { groq } from 'next-sanity';
+import client from './sanityClient';
+
+export async function createComment(review :Rating ) {
+await client.create({
+    _type: 'rating',
+    rating: review.rating,
+    review: review.review,
+    wine: { _ref: review.wineId, _type: 'reference' },
+  });
+}
 
 export async function getWines(): Promise<Array<Wine>> {
-  const wines: Array<Wine> = await sanityClient.fetch(
+  const wines: Array<Wine> = await client.fetch(
     groq`*[_type == "wine"]{
     _id,
     name,
@@ -24,7 +33,7 @@ export async function getWines(): Promise<Array<Wine>> {
 }
 
 export async function getWine(slug: string): Promise<Wine> {
-  const wine: Wine = await sanityClient.fetch(
+  const wine: Wine = await client.fetch(
     groq`*[_type == "wine" && slug.current == $slug][0]{
     _id,
     name,
@@ -48,7 +57,7 @@ export async function getWine(slug: string): Promise<Wine> {
 }
 
 export async function getRatings(): Promise<Array<Rating>> {
-  const ratings: Array<Rating> = await sanityClient.fetch(
+  const ratings: Array<Rating> = await client.fetch(
     groq`*[_type == "rating"]{
     _id,
     rating,
@@ -66,7 +75,7 @@ export async function getRatings(): Promise<Array<Rating>> {
 export async function getAllRatingsForWine(
   slug: string
 ): Promise<Array<Rating>> {
-  const ratings: Array<Rating> = await sanityClient.fetch(
+  const ratings: Array<Rating> = await client.fetch(
     groq`*[_type == "rating" && wine->slug.current == $slug]{
     _id,
     rating,
@@ -82,7 +91,7 @@ export async function getAllRatingsForWine(
 }
 
 export async function getUser(email: string): Promise<User> {
-  const user = await sanityClient.fetch(
+  const user = await client.fetch(
     groq`*[_type == "user" && email == $email][0]{
     name,
     email,
