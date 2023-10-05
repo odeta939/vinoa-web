@@ -9,7 +9,7 @@ const config = defineConfig({
   title: 'Wine-Tastery',
   projectId: '9thjj5x6',
   dataset: 'production',
-  basePath: '/admin',
+  basePath: '/studio',
   apiVersion: '2023-09-15', // use a UTC date string
 
   plugins: [deskTool(), visionTool(), unsplashImageAsset()],
