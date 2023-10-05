@@ -1,7 +1,7 @@
 'use client';
+//import { postComment } from '@/app/api/comment/route';
 import { createComment } from '@/sanity/sanity-utils';
 import { useState, useEffect } from 'react';
-import { set } from 'sanity';
 
 interface Props {
   //userName: string;
@@ -10,6 +10,8 @@ interface Props {
 const CommentToPost = () => {
   const [inputValue, setInputValue] = useState('');
   const [buttonClicked, setButtonClicked] = useState(false);
+
+  console.log('from CommentToPost');
 
   useEffect(() => {
     const init = async () => {
@@ -22,8 +24,17 @@ const CommentToPost = () => {
     }
   }, [buttonClicked]);
 
-  const handleOnClick = () => {
+  const handleOnClick = async () => {
+    const res = await fetch('/api/comment', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ inputValue }),
+    });
+
     console.log(inputValue);
+
     setButtonClicked(true);
   };
 

@@ -2,14 +2,12 @@ import { groq } from 'next-sanity';
 import client from './sanityClient';
 
 export async function createComment() {
-  const result = await client.create({
+  await client.create({
     _type: 'rating',
     rating: 4,
     review: 'goooooooood',
     wine: { _ref: '1c8f4659-c4ec-49fd-af01-f81f444fcc7e', _type: 'reference' },
   });
-
-  return result;
 }
 
 export async function getWines(): Promise<Array<Wine>> {
