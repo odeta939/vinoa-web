@@ -1,46 +1,32 @@
 'use client';
-//import { postComment } from '@/app/api/comment/route';
-import { createComment } from '@/sanity/sanity-utils';
-import { useState, useEffect } from 'react';
+
+import { useState } from 'react';
 
 interface Props {
-  //userName: string;
-  //userAvatar: string;
+  wine: Wine;
 }
-const CommentToPost = () => {
-  const [inputValue, setInputValue] = useState('');
-  const [buttonClicked, setButtonClicked] = useState(false);
-
-  console.log('from CommentToPost');
-
-  useEffect(() => {
-    const init = async () => {
-      const resp = await createComment();
-    };
-    if (buttonClicked) {
-      init();
-      setButtonClicked(false);
-      setInputValue('');
-    }
-  }, [buttonClicked]);
+const CommentToPost = ({ wine }: Props) => {
+  const [review, setReview] = useState('');
 
   const handleOnClick = async () => {
-    const res = await fetch('/api/comment', {
+    let reviewToPost: Rating = {
+      rating: 5,
+      review: review,
+      wineId: wine._id,
+    };
+    await fetch('/api/comment', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ inputValue }),
+      body: JSON.stringify(reviewToPost),
     });
-
-    console.log(inputValue);
-
-    setButtonClicked(true);
+    setReview('');
   };
 
   const handleOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = (e.target as HTMLInputElement).value;
-    setInputValue(value);
+    setReview(value);
   };
   return (
     <div className='chat chat-end'>
@@ -52,7 +38,7 @@ const CommentToPost = () => {
       </div>
       <div className='chat-header mb-2'>USER NAME</div>
       <input
-        value={inputValue}
+        value={review}
         onChange={(e) => handleOnChange(e)}
         className='chat-bubble text-violet-darker bg-grey-highlight focus:outline-none focus:ring focus:ring-violet-300'
         type='text'

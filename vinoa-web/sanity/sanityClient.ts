@@ -8,6 +8,4 @@ const client = createClient({
   token: env.SANITY_API_TOKEN,
   useCdn: false,
 });
-
-console.log(env.SANITY_API_TOKEN);
 export default client;

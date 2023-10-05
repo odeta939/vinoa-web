@@ -2,10 +2,14 @@
 import CommentToPost from '../CommentToPost';
 import PreviousRatings from '../PreviousRatings';
 
-const CommentSection = () => {
+interface Props {
+  wine: Wine;
+}
+
+const CommentSection = ({ wine }: Props) => {
   return (
     <div className='p-6'>
-      <CommentToPost />
+      <CommentToPost wine={wine} />
       <PreviousRatings />
     </div>
   );

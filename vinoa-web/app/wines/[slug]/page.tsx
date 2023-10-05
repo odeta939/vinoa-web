@@ -28,7 +28,7 @@ const WinePage = async ({ params }: Props) => {
         </div>
       </div>
       <div className='bg-violet-dark mx-14 mt-8'>
-        <CommentSection />
+        <CommentSection wine={wine} />
       </div>
     </div>
   );

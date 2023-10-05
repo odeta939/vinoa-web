@@ -10,7 +10,9 @@ const WinesPage = async () => {
       <h1>Wine Page</h1>
       <ul>
         {wines.map((wine) => (
-          <WineCard wine={wine}></WineCard>
+          <li key={wine._id}>
+            <WineCard wine={wine}></WineCard>
+          </li>
         ))}
       </ul>
     </div>
