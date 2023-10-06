@@ -72,24 +72,6 @@ export async function getRatings(): Promise<Array<Review>> {
   return reviews;
 }
 
-export async function getAllRatingsForWine(
-  slug: string
-): Promise<Array<Review>> {
-  const reviews: Array<Review> = await client.fetch(
-    groq`*[_type == "Review" && wine->slug.current == $slug]{
-    _id,
-    rating,
-    comment,
-  }`,
-    { slug },
-    {
-      cache: 'no-store',
-    }
-  );
-
-  return reviews;
-}
-
 export async function getUser(email: string): Promise<User> {
   const user = await client.fetch(
     groq`*[_type == "user" && email == $email][0]{
