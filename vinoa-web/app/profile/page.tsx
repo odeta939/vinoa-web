@@ -5,8 +5,6 @@ import { getUser } from '@/sanity/sanity-utils';
 
 const Profile = async () => {
   const user = await getUser('testuser');
-  console.log(user.wines);
-  console.log(JSON.stringify(user));
   return (
     <div className='flex flex-col items-center pt-12 h-full gap-10'>
       <ProfileLogo />

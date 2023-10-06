@@ -1,11 +1,11 @@
 import { groq } from 'next-sanity';
 import client from './sanityClient';
 
-export async function createComment(review :Rating ) {
+export async function createComment(review :Review ) {
 await client.create({
-    _type: 'rating',
+    _type: 'review',
     rating: review.rating,
-    review: review.review,
+    comment: review.comment,
     wine: { _ref: review.wineId, _type: 'reference' },
   });
 }
@@ -56,12 +56,12 @@ export async function getWine(slug: string): Promise<Wine> {
   return wine;
 }
 
-export async function getRatings(): Promise<Array<Rating>> {
-  const ratings: Array<Rating> = await client.fetch(
-    groq`*[_type == "rating"]{
+export async function getRatings(): Promise<Array<Review>> {
+  const reviews: Array<Review> = await client.fetch(
+    groq`*[_type == "review"]{
     _id,
     rating,
-    review,
+    comment,
     "wine" : wine->slug.current,
   }`,
     {
@@ -69,25 +69,7 @@ export async function getRatings(): Promise<Array<Rating>> {
     }
   );
 
-  return ratings;
-}
-
-export async function getAllRatingsForWine(
-  slug: string
-): Promise<Array<Rating>> {
-  const ratings: Array<Rating> = await client.fetch(
-    groq`*[_type == "rating" && wine->slug.current == $slug]{
-    _id,
-    rating,
-    review,
-  }`,
-    { slug },
-    {
-      cache: 'no-store',
-    }
-  );
-
-  return ratings;
+  return reviews;
 }
 
 export async function getUser(email: string): Promise<User> {
@@ -138,4 +120,21 @@ export async function getThisMonthsWines(dateFrom: string, dateTo: string) {
   );
 
   return wines;
+}
+
+export async function getReviewsForWine(slug: string): Promise<Array<Review>> {
+  const reviews: Array<Review> = await client.fetch(
+    groq`*[_type == "review" && wine->slug.current == $slug]{
+    _id,
+    rating,
+    comment,
+    "wine" : wine->slug.current,
+  }`,
+    { slug },
+    {
+      cache: 'no-store',
+    }
+  );
+
+  return reviews;
 }
