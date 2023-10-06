@@ -24,7 +24,10 @@ const WinePage = async ({ params }: Props) => {
             alt='Image of a wine bottle'
             src={wine.imageUrl}
           />
-          <Rating label='Tasted by 5 people' rating={averageRating} />
+          <Rating
+            label={`Rated ${reviews.length} times`}
+            rating={averageRating}
+          />
         </div>
 
         <div className='col-start-3 col-span-3 '>
