@@ -1,16 +1,20 @@
 'use client';
 import { useState } from 'react';
+import Rating from '../Rating';
 
 interface Props {
   wineId: string;
 }
 const CommentToPost = ({ wineId }: Props) => {
-  const [review, setReview] = useState('');
+  const [comment, setComment] = useState('');
+  const [rating, setRating] = useState(0);
+
+  const isDisabled = rating === 0 || comment === '';
 
   const handleOnClick = async () => {
     let reviewToPost: Review = {
-      rating: 5,
-      comment: review,
+      rating: rating,
+      comment: comment,
       wineId: wineId,
     };
     await fetch('/api/comment', {
@@ -20,12 +24,13 @@ const CommentToPost = ({ wineId }: Props) => {
       },
       body: JSON.stringify(reviewToPost),
     });
-    setReview('');
+    setComment('');
+    setRating(0);
   };
 
   const handleOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = (e.target as HTMLInputElement).value;
-    setReview(value);
+    setComment(value);
   };
   return (
     <div className='chat chat-end'>
@@ -37,16 +42,23 @@ const CommentToPost = ({ wineId }: Props) => {
       </div>
       <div className='chat-header mb-2'>USER NAME</div>
       <input
-        value={review}
+        value={comment}
         onChange={(e) => handleOnChange(e)}
         className='chat-bubble text-violet-darker bg-grey-highlight focus:outline-none focus:ring focus:ring-violet-300'
         type='text'
       />
       <div className='chat-footer flex flex-row gap-2 '>
-        {/* <Rating /> */}
+        <Rating setRating={setRating} rating={rating} />
         <button
+          disabled={isDisabled}
           onClick={handleOnClick}
-          className='w-24 mt-2 text-violet-darker bg-gold-highlight flex text-l font-semibold justify-around items-center place-self-center py-2'
+          className={`w-24 mt-2  flex text-l font-semibold justify-around items-center place-self-center py-2
+            ${
+              isDisabled
+                ? 'bg-gold-highlight/40 text-violet-darker/40'
+                : 'bg-gold-highlight text-violet-darker '
+            }
+            `}
         >
           Submit
         </button>

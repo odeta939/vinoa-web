@@ -10,4 +10,11 @@ const getCurrentMonthAsRange = () => {
   return { from, to };
 }
 
-export default getCurrentMonthAsRange;
+const getAverageRating= (reviews: Review[]) => {
+  let sum =0
+  reviews.forEach((review) => {
+    sum += review.rating;
+  });
+  return sum / reviews.length;
+}
+export { getAverageRating , getCurrentMonthAsRange};
