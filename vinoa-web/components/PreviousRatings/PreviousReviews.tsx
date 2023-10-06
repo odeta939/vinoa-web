@@ -1,5 +1,6 @@
 import { getReviewsForWine } from '@/sanity/sanity-utils';
 import Image from 'next/image';
+import Rating from '../Rating';
 
 interface Props {
   slug: string;
@@ -27,7 +28,9 @@ const PreviousReviews = async ({ slug }: Props) => {
             <div className='chat-bubble bg-grey-highlight'>
               <p className='text-violet-darker'>{review.comment}</p>
             </div>
-            <div className='chat-footer'>{/* <Rating /> */}</div>
+            <div className='chat-footer'>
+              <Rating rating={review.rating} />
+            </div>
           </div>
         );
       })}

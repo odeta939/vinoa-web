@@ -1,38 +1,36 @@
+'use client';
+import { AiFillStar } from 'react-icons/ai';
+import { AiOutlineStar } from 'react-icons/ai';
+
 interface RatingProps {
   label?: string;
+  rating: number;
+  maxRating?: number;
+  setRating?: (rating: number) => void;
 }
-const Rating = ({ label }: RatingProps) => {
+const Rating = ({ label, rating, maxRating = 5, setRating }: RatingProps) => {
   return (
-    <div className='mt-4'>
+    <div className='mt-4 rating'>
       {label && <p>{label}</p>}
-      <div className='rating'>
-        <input
-          type='radio'
-          name='rating-1'
-          className='mask mask-star bg-gold-highlight'
-        />
-        <input
-          type='radio'
-          name='rating-1'
-          className='mask mask-star bg-gold-highlight'
-          checked
-        />
-        <input
-          type='radio'
-          name='rating-1'
-          className='mask mask-star bg-gold-highlight'
-        />
-        <input
-          type='radio'
-          name='rating-1'
-          className='mask mask-star bg-gold-highlight'
-        />
-        <input
-          type='radio'
-          name='rating-1'
-          className='mask mask-star bg-gold-highlight'
-        />
-      </div>
+      {Array.from({ length: maxRating }, (_, i) => {
+        const isFilled = i < rating;
+        const StarIcon = isFilled ? AiFillStar : AiOutlineStar;
+        const handleOnClick = () => {
+          if (setRating) {
+            setRating(i + 1);
+          }
+        };
+        return (
+          <StarIcon
+            onClick={handleOnClick}
+            key={i}
+            className={
+              'text-gold-highlight text-xl' +
+              (setRating ? ' cursor-pointer' : '')
+            }
+          />
+        );
+      })}
     </div>
   );
 };

@@ -1,7 +1,7 @@
 import { groq } from 'next-sanity';
 import client from './sanityClient';
 
-export async function createComment(review :Review ) {
+export async function createReview(review :Review ) {
 await client.create({
     _type: 'review',
     rating: review.rating,
@@ -54,22 +54,6 @@ export async function getWine(slug: string): Promise<Wine> {
   );
 
   return wine;
-}
-
-export async function getRatings(): Promise<Array<Review>> {
-  const reviews: Array<Review> = await client.fetch(
-    groq`*[_type == "review"]{
-    _id,
-    rating,
-    comment,
-    "wine" : wine->slug.current,
-  }`,
-    {
-      cache: 'no-store',
-    }
-  );
-
-  return reviews;
 }
 
 export async function getUser(email: string): Promise<User> {
@@ -137,4 +121,19 @@ export async function getReviewsForWine(slug: string): Promise<Array<Review>> {
   );
 
   return reviews;
+}
+
+export async function getRatingsForWine(slug: string): Promise<Array<number>> {
+  const ratings: Array<number> = await client.fetch(
+    groq`*[_type == "review" && wine->slug.current == $slug]{
+    rating,
+
+  }`,
+    { slug },
+    {
+      cache: 'no-store',
+    }
+  );
+
+  return ratings;
 }
