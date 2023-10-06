@@ -1,2 +1,2 @@
-import PreviousRatings from './PreviousRatings';
-export default PreviousRatings;
+import PreviousReviews from './PreviousReviews';
+export default PreviousReviews;

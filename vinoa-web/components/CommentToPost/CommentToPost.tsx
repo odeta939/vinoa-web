@@ -2,16 +2,16 @@
 import { useState } from 'react';
 
 interface Props {
-  wine: Wine;
+  wineId: string;
 }
-const CommentToPost = ({ wine }: Props) => {
+const CommentToPost = ({ wineId }: Props) => {
   const [review, setReview] = useState('');
 
   const handleOnClick = async () => {
-    let reviewToPost: Rating = {
+    let reviewToPost: Review = {
       rating: 5,
-      review: review,
-      wineId: wine._id,
+      comment: review,
+      wineId: wineId,
     };
     await fetch('/api/comment', {
       method: 'POST',

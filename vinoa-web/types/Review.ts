@@ -1,5 +1,5 @@
-type Rating = {
+type Review = {
   rating: number;
-  review: string;
+  comment: string;
   wineId: string;
 };
