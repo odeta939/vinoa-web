@@ -119,7 +119,7 @@ export async function getUser(email: string): Promise<User> {
 }
 
 export async function getThisMonthsWines(dateFrom: string, dateTo: string) {
-  const wines: Array<Wine> = await sanityClient.fetch(
+  const wines: Array<Wine> = await client.fetch(
     groq`*[_type == "wine" && dateOfTasting >= $dateFrom && dateOfTasting <= $dateTo]{
     _id,
     name,
