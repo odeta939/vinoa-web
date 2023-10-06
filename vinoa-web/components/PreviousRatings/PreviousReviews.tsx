@@ -8,7 +8,7 @@ const PreviousReviews = async ({ slug }: Props) => {
   const reviews: Array<Review> = await getReviewsForWine(slug);
   return (
     <>
-      {reviews.map((review) => {
+      {reviews.map((review, idx) => {
         return (
           <div className='chat chat-start'>
             <div className='chat-image avatar'>
@@ -19,7 +19,9 @@ const PreviousReviews = async ({ slug }: Props) => {
             <div className='chat-header'>Anakin</div>
 
             <div className='chat-bubble bg-grey-highlight'>
-              <p className='text-violet-darker'> {review.comment}</p>
+              <p className='text-violet-darker' key={idx}>
+                {review.comment}
+              </p>
             </div>
             <div className='chat-footer'>{/* <Rating /> */}</div>
           </div>
