@@ -27,7 +27,7 @@ const Navigation = () => {
             <Link href='/profile'>
               <ProfileLogo />
             </Link>
-            {/* <LoginButton /> */}
+            <LoginButton />
           </li>
         </ul>
       </div>
