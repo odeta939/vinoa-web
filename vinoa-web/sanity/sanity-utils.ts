@@ -10,6 +10,19 @@ await client.create({
   });
 }
 
+export async function createUser(user: User) {
+  await client.create({
+    _type: 'user',
+    name: user.name,
+    id: user.id,
+    slug:{
+      current: user.slug
+    }
+    // image: { _ref: user.image, _type: 'reference' },
+  });
+  return user;
+}
+
 export async function getWines(): Promise<Array<Wine>> {
   const wines: Array<Wine> = await client.fetch(
     groq`*[_type == "wine"]{
@@ -56,11 +69,11 @@ export async function getWine(slug: string): Promise<Wine> {
   return wine;
 }
 
-export async function getUser(email: string): Promise<User> {
+export async function getUser(id: string): Promise<User> {
   const user = await client.fetch(
-    groq`*[_type == "user" && email == $email][0]{
+    groq`*[_type == "user" && id == $id][0]{
     name,
-    email,
+    id,
     "slug" : slug.current,
     "imageUrl" : image.asset->url,
     "wines" : *[_type == "wine" && references(^._id)][]{
@@ -75,7 +88,7 @@ export async function getUser(email: string): Promise<User> {
     colour,
     }
   }`,
-    { email },
+    { id },
     {
       cache: 'no-store',
     }

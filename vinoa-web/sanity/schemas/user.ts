@@ -13,8 +13,8 @@ export default defineType({
       type: 'string',
     }),
     defineField({
-      name: 'email',
-      title: 'Email',
+      name: 'id',
+      title: 'User id',
       type: 'string',
     }),
     defineField({
