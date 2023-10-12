@@ -1,15 +1,19 @@
-import CommentToPost from '../CommentToPost';
+'use client';
+import ReviewToPost from '../ReviewToPost';
 import PreviousReviews from '../PreviousRatings';
+import { useSession } from 'next-auth/react';
 
 interface Props {
   wine: Wine;
 }
 
 const CommentSection = ({ wine }: Props) => {
+  console.log('hi from CommentSection');
   const { slug = '', _id } = wine;
+  // const { data: session }: any = useSession();
   return (
     <div className='p-6'>
-      <CommentToPost wineId={_id} />
+      <ReviewToPost wineId={_id} />
       <PreviousReviews slug={slug} />
     </div>
   );

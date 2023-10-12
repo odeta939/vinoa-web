@@ -1,4 +1,4 @@
-import { createReview } from "@/sanity/sanity-utils";
+import { createReview } from "@/sanity/sanity-utils/review-utils";
 import { NextResponse } from "next/server";
 
 export async function POST(req:Request) {

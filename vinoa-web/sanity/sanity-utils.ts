@@ -5,7 +5,7 @@ export async function createReview(review :Review ) {
 await client.create({
     _type: 'review',
     rating: review.rating,
-    comment: review.comment,
+    // comment: review.comment,
     wine: { _ref: review.wineId, _type: 'reference' },
   });
 }
@@ -134,19 +134,4 @@ export async function getReviewsForWine(slug: string): Promise<Array<Review>> {
   );
 
   return reviews;
-}
-
-export async function getRatingsForWine(slug: string): Promise<Array<number>> {
-  const ratings: Array<number> = await client.fetch(
-    groq`*[_type == "review" && wine->slug.current == $slug]{
-    rating,
-
-  }`,
-    { slug },
-    {
-      cache: 'no-store',
-    }
-  );
-
-  return ratings;
 }

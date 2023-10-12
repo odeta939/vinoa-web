@@ -5,32 +5,35 @@ import Rating from '../Rating';
 interface Props {
   wineId: string;
 }
-const CommentToPost = ({ wineId }: Props) => {
-  const [comment, setComment] = useState('');
+const ReviewToPost = ({ wineId }: Props) => {
+  console.log('hi from ReviewToPost');
+  const [review, setReview] = useState('');
   const [rating, setRating] = useState(0);
 
-  const isDisabled = rating === 0 || comment === '';
+  const isDisabled = rating === 0 || review === '';
 
   const handleOnClick = async () => {
     let reviewToPost: Review = {
       rating: rating,
-      comment: comment,
+      comment: review,
       wineId: wineId,
+      userId: '',
     };
-    await fetch('/api/comment', {
+
+    await fetch('/api/review', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify(reviewToPost),
     });
-    setComment('');
+    setReview('');
     setRating(0);
   };
 
   const handleOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = (e.target as HTMLInputElement).value;
-    setComment(value);
+    setReview(value);
   };
   return (
     <div className='chat chat-end'>
@@ -40,9 +43,9 @@ const CommentToPost = ({ wineId }: Props) => {
           <img src='https://images.unsplash.com/photo-1610631787813-9eeb1a2386cc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1935&q=80' />
         </div>
       </div>
-      <div className='chat-header mb-2'>USER NAME</div>
+      <div className='chat-header mb-2'>{'USER NAME'}</div>
       <input
-        value={comment}
+        value={review}
         onChange={(e) => handleOnChange(e)}
         className='chat-bubble text-violet-darker bg-grey-highlight focus:outline-none focus:ring focus:ring-violet-300'
         type='text'
@@ -67,4 +70,4 @@ const CommentToPost = ({ wineId }: Props) => {
   );
 };
 
-export default CommentToPost;
+export default ReviewToPost;

@@ -1,13 +1,24 @@
+'use client';
 import { getReviewsForWine } from '@/sanity/sanity-utils';
 import Image from 'next/image';
 import Rating from '../Rating';
+import { useEffect, useState } from 'react';
 
 interface Props {
   slug: string;
 }
 
-const PreviousReviews = async ({ slug }: Props) => {
-  const reviews: Array<Review> = await getReviewsForWine(slug);
+const PreviousReviews = ({ slug }: Props) => {
+  const [reviews, setReviews] = useState<Review[]>([]);
+  useEffect(() => {
+    const getReviews = async () => {
+      const reviews = await getReviewsForWine(slug);
+      setReviews(reviews);
+      console.log('reviews', reviews);
+    };
+    getReviews();
+  }, []);
+  // const reviews: Array<Review> = await getReviewsForWine(slug);
   return (
     <>
       {reviews.map((review, idx) => {

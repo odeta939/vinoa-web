@@ -10,16 +10,34 @@ const authenticator = NextAuth({
     }),
   ],
   callbacks: {
-    session({ session, token }: any) {
-      if (session.user) {
-        session.user.id = token.sub as string;
-      }
-      return session;
+    async jwt({ token, user, account, profile }) {
+        if (account) {
+            // token.accessToken = account.access_token;
+            token.idToken = account.id_token
+            // token.id = profile.id
+            // token.expiresIn = account.expires_in;
+            token.expiresAt = account.expires_at
+        }
+
+        return token
     },
-  },
-  session: {
-    strategy: 'jwt',
-  },
+    async session({ session, token }:any) {
+        session.user.id = token.sub
+        return session
+    },
+},
+  // callbacks: {
+    
+  //   session({ session, token }: any) {
+  //     if (session.user) {
+  //       session.user.id = token.sub as string;
+  //     }
+  //     return session;
+  //   },
+  // },
+  // session: {
+  //   strategy: 'jwt',
+  // },
 });
 
 export { authenticator as GET, authenticator as POST };
