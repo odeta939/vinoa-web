@@ -2,6 +2,7 @@
 import Logo from '@/lib/assets/Logo';
 import ProfileLogo from '@/lib/assets/ProfileLogo';
 import Link from 'next/link';
+import LoginButton from '../LoginButton';
 
 const Navigation = () => {
   return (
@@ -26,6 +27,7 @@ const Navigation = () => {
             <Link href='/profile'>
               <ProfileLogo />
             </Link>
+            <LoginButton />
           </li>
         </ul>
       </div>

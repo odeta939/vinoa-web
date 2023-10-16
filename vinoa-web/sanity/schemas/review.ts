@@ -23,5 +23,11 @@ export default defineType({
       type: 'reference',
       to: [{ type: 'wine' }],
     }),
+    defineField({
+      name: 'user',
+      title: 'User who rated the wine',
+      type: 'reference',
+      to: [{ type: 'user' }],
+    }),
   ],
 });

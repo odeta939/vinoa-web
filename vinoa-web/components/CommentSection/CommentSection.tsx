@@ -1,6 +1,6 @@
-import CommentToPost from '../CommentToPost';
+'use client';
+import ReviewToPost from '../ReviewToPost';
 import PreviousReviews from '../PreviousRatings';
-
 interface Props {
   wine: Wine;
 }
@@ -9,7 +9,7 @@ const CommentSection = ({ wine }: Props) => {
   const { slug = '', _id } = wine;
   return (
     <div className='p-6'>
-      <CommentToPost wineId={_id} />
+      <ReviewToPost wineId={_id} />
       <PreviousReviews slug={slug} />
     </div>
   );

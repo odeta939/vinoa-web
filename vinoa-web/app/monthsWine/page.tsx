@@ -1,6 +1,6 @@
 import WineCard from '@/components/WineCard';
 import { getCurrentMonthAsRange } from '@/lib/utils/helperFunctions';
-import { getThisMonthsWines } from '@/sanity/sanity-utils';
+import { getThisMonthsWines } from '@/sanity/sanity-utils/wine-utils';
 
 const MonthsWinePage = async () => {
   const date = getCurrentMonthAsRange();
