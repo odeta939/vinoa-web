@@ -9,7 +9,6 @@ export async function createUser(user: User) {
     slug:{
       current: user.slug
     }
-    // image: { _ref: user.image, _type: 'reference' },
   });
   return user;
 }
