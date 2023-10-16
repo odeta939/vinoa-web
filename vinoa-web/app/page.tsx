@@ -1,6 +1,6 @@
 import WineCarousel from '@/components/WineCarousel';
 import WineButton from '@/components/WineButton';
-import { getWines } from '@/sanity/sanity-utils';
+import { getWines } from '@/sanity/sanity-utils/wine-utils';
 
 export const dynamic = 'force-dynamic';
 

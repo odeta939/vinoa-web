@@ -1,8 +1,6 @@
 'use client';
 import ReviewToPost from '../ReviewToPost';
 import PreviousReviews from '../PreviousRatings';
-import { useSession } from 'next-auth/react';
-
 interface Props {
   wine: Wine;
 }

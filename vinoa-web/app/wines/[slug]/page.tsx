@@ -1,7 +1,8 @@
 import CommentSection from '@/components/CommentSection';
 import Rating from '@/components/Rating';
 import { getAverageRating } from '@/lib/utils/helperFunctions';
-import { getReviewsForWine, getWine } from '@/sanity/sanity-utils';
+import { getReviewsForWine } from '@/sanity/sanity-utils/review-utils';
+import { getWine } from '@/sanity/sanity-utils/wine-utils';
 import Image from 'next/image';
 
 interface Props {

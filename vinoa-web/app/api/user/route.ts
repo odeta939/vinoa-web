@@ -1,4 +1,4 @@
-import { createUser, getUser } from "@/sanity/sanity-utils";
+import { createUser, getUser } from "@/sanity/sanity-utils/user-utils";
 import { NextResponse } from "next/server";
 
 export async function POST(req:Request) {

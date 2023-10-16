@@ -1,5 +1,5 @@
 import WineCard from '@/components/WineCard';
-import { getWines } from '@/sanity/sanity-utils';
+import { getWines } from '@/sanity/sanity-utils/wine-utils';
 
 export const dynamic = 'force-dynamic';
 

@@ -5,7 +5,7 @@ export async function createReview(review :Review ) {
   await client.create({
       _type: 'review',
       rating: review.rating,
-      comment: review.review,
+      comment: review.comment,
       wine: { _ref: review.wineId, _type: 'reference' },
     });
   }

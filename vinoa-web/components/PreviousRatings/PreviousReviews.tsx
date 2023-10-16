@@ -1,5 +1,5 @@
 'use client';
-import { getReviewsForWine } from '@/sanity/sanity-utils';
+import { getReviewsForWine } from '@/sanity/sanity-utils/review-utils';
 import Image from 'next/image';
 import Rating from '../Rating';
 import { useEffect, useState } from 'react';
