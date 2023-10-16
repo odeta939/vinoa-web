@@ -5,7 +5,7 @@ export async function createUser(user: User) {
   await client.create({
     _type: 'user',
     name: user.name,
-    id: user.id,
+    id: user.uid,
     slug:{
       current: user.slug
     }
@@ -18,7 +18,7 @@ export async function getUser(id: string): Promise<User> {
   const user = await client.fetch(
     groq`*[_type == "user" && id == $id][0]{
     name,
-    id,
+    uid,
     "slug" : slug.current,
     "imageUrl" : image.asset->url,
     "wines" : *[_type == "wine" && references(^._id)][]{

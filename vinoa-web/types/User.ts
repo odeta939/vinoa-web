@@ -1,6 +1,6 @@
 type User = {
   name?: string;
-  id?: string;
+  uid?: string;
   slug?: string;
   image?: string;
   wines: Wine[];
