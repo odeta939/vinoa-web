@@ -10,12 +10,9 @@ const authenticator = NextAuth({
     }),
   ],
   callbacks: {
-    async jwt({ token, user, account, profile }) {
+    async jwt({ token, account,}) {
         if (account) {
-            // token.accessToken = account.access_token;
             token.idToken = account.id_token
-            // token.id = profile.id
-            // token.expiresIn = account.expires_in;
             token.expiresAt = account.expires_at
         }
 
@@ -25,19 +22,7 @@ const authenticator = NextAuth({
         session.user.id = token.sub
         return session
     },
-},
-  // callbacks: {
-    
-  //   session({ session, token }: any) {
-  //     if (session.user) {
-  //       session.user.id = token.sub as string;
-  //     }
-  //     return session;
-  //   },
-  // },
-  // session: {
-  //   strategy: 'jwt',
-  // },
+  },
 });
 
 export { authenticator as GET, authenticator as POST };
