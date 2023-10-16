@@ -14,11 +14,9 @@ const PreviousReviews = ({ slug }: Props) => {
     const getReviews = async () => {
       const reviews = await getReviewsForWine(slug);
       setReviews(reviews);
-      console.log('reviews', reviews);
     };
     getReviews();
   }, []);
-  // const reviews: Array<Review> = await getReviewsForWine(slug);
   return (
     <>
       {reviews.map((review, idx) => {
