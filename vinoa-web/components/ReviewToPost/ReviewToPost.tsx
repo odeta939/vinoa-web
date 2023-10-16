@@ -6,7 +6,6 @@ interface Props {
   wineId: string;
 }
 const ReviewToPost = ({ wineId }: Props) => {
-  console.log('hi from ReviewToPost');
   const [review, setReview] = useState('');
   const [rating, setRating] = useState(0);
 
