@@ -14,8 +14,8 @@ export async function getWines(): Promise<Array<Wine>> {
     region,
     smell,
     taste,
-    colour,
-
+    price,
+    "tag": *[_id == ^.tag._ref][0].name,
   }`,
     {
       cache: 'no-store',
@@ -37,8 +37,8 @@ export async function getWine(slug: string): Promise<Wine> {
     region,
     smell,
     taste,
-    colour,
-
+    price,
+    "tag": *[_id == ^.tag._ref][0].name,
   }`,
     { slug },
     {
@@ -48,8 +48,6 @@ export async function getWine(slug: string): Promise<Wine> {
 
   return wine;
 }
-
-
 
 export async function getThisMonthsWines(dateFrom: string, dateTo: string) {
   const wines: Array<Wine> = await client.fetch(
@@ -62,7 +60,8 @@ export async function getThisMonthsWines(dateFrom: string, dateTo: string) {
     region,
     smell,
     taste,
-    colour,
+    price,
+    "tag": *[_id == ^.tag._ref][0].name,
   }`,
     { dateFrom, dateTo },
     {

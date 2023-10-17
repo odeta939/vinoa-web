@@ -3,6 +3,8 @@ type Wine = {
   name: string;
   slug: string;
   description: string;
+  tag: string;
+  price : number;
   imageUrl: string;
   dateOfTasting: Date;
   country: string;
