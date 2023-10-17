@@ -29,7 +29,8 @@ export async function getUser(id: string): Promise<User> {
     region,
     smell,
     taste,
-    colour,
+    price,
+    "tag": *[_id == ^.tag._ref][0].name,
     }
   }`,
     { id },

@@ -30,12 +30,24 @@ export default defineType({
       // validation: (Rule) => Rule.required(),
     }),
     defineField({
+      name: 'price',
+      title: 'Price',
+      type: 'number',
+      // validation: (Rule) => Rule.required(),
+    }),
+    defineField({
       name: 'mainImage',
       title: 'Main image',
       type: 'image',
       options: {
         hotspot: true,
       },
+    }),
+    defineField({
+      name: 'tag',
+      title: 'Wine type',
+      type: 'reference',
+      to: [{ type: 'tag' }],
     }),
     defineField({
       name: 'dateOfTasting',
@@ -62,11 +74,6 @@ export default defineType({
     defineField({
       name: 'taste',
       title: 'Taste of Wine',
-      type: 'string',
-    }),
-    defineField({
-      name: 'colour',
-      title: 'Colour of Wine',
       type: 'string',
     }),
     defineField({
