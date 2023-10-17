@@ -49,8 +49,6 @@ export async function getWine(slug: string): Promise<Wine> {
   return wine;
 }
 
-
-
 export async function getThisMonthsWines(dateFrom: string, dateTo: string) {
   const wines: Array<Wine> = await client.fetch(
     groq`*[_type == "wine" && dateOfTasting >= $dateFrom && dateOfTasting <= $dateTo]{
