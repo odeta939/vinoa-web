@@ -4,7 +4,8 @@ import { NextResponse } from 'next/server';
 export async function POST(req: Request) {
   const response: User = await req.json();
   let user = await getUser(response.uid as string);
-  if (!user) {
+  console.log('user', user);
+  if (!user && response.name != '') {
     user = await createUser(response);
   }
   return NextResponse.json({ message: 'ok', user: user });
