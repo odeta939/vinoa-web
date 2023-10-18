@@ -5,6 +5,7 @@ import WineCard from '../WineCard';
 import { useEffect } from 'react';
 import { useSanityUserStore, useUserStore } from '@/store/store';
 import LoginButton from '../LoginButton';
+import { getUser } from '@/sanity/sanity-utils/user-utils';
 
 const UserProfile = () => {
   const globalUser = useUserStore((state) => state.user);
@@ -13,7 +14,6 @@ const UserProfile = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      console.log(globalUser, 'global user');
       const userToPost = {
         name: globalUser.name,
         uid: globalUser.id,
@@ -27,13 +27,11 @@ const UserProfile = () => {
         },
         body: JSON.stringify(userToPost),
       });
-      console.log(userToPost, 'user to post');
       let { user } = await response.json();
-      console.log(user, 'user');
       setUser(user);
     };
     fetchData();
-  }, [globalUser]);
+  }, [globalUser.session]);
   if (user.name.length != 0) {
     return (
       <div className='flex flex-col items-center pt-12 h-full gap-10'>

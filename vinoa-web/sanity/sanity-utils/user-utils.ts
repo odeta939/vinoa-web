@@ -2,7 +2,6 @@ import { groq } from 'next-sanity';
 import client from '../sanityClient';
 
 export async function createUser(user: User) {
-  console.log(user, 'sanity-utils/user-utils.ts');
   await client.create({
     _type: 'user',
     name: user.name,
@@ -16,7 +15,7 @@ export async function createUser(user: User) {
 
 export async function getUser(id: string): Promise<User> {
   const user = await client.fetch(
-    groq`*[_type == "user" && id == $id][0]{
+    groq`*[_type == "user" && uid == $id][0]{
     name,
     uid,
     "slug" : slug.current,

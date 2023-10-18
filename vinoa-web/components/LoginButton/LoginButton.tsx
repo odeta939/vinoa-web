@@ -10,9 +10,7 @@ export default function LoginButton() {
   useEffect(() => {
     if (session) {
       const { name, id } = session.user as SessionUser;
-      setUser({ name: name, id: id });
-    } else {
-      setUser({ name: '', id: '' });
+      setUser({ name: name, id: id, session: true });
     }
   }, [session]);
 
@@ -28,5 +26,14 @@ export default function LoginButton() {
     );
   }
 
-  return <button onClick={() => signOut()}>Sign out</button>;
+  return (
+    <button
+      onClick={() => {
+        signOut();
+        setUser({ name: '', id: '', session: false });
+      }}
+    >
+      Sign out
+    </button>
+  );
 }

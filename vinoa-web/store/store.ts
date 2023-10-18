@@ -4,8 +4,9 @@ interface UserStore {
   user: {
     name: string;
     id: string;
+    session: boolean;
   };
-  setUser: (user: { name: string; id: string }) => void;
+  setUser: (user: { name: string; id: string; session: boolean }) => void;
   updateUserName: (name: string) => void;
 }
 
@@ -13,6 +14,7 @@ export const useUserStore = create<UserStore>()((set) => ({
   user: {
     name: '',
     id: '',
+    session: false,
   },
   setUser: (user) => set({ user }),
   updateUserName: (name) => set((state) => ({ user: { ...state.user, name } })),
