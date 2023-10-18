@@ -1,11 +1,9 @@
 'use client';
 import ProfileLogo from '@/lib/assets/ProfileLogo';
-import { BsPencilFill } from 'react-icons/bs';
 import WineCard from '../WineCard';
 import { useEffect } from 'react';
 import { useSanityUserStore, useUserStore } from '@/store/store';
 import LoginButton from '../LoginButton';
-import { getUser } from '@/sanity/sanity-utils/user-utils';
 
 const UserProfile = () => {
   const globalUser = useUserStore((state) => state.user);
