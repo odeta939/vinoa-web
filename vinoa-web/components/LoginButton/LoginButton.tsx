@@ -5,7 +5,6 @@ import { useEffect } from 'react';
 
 export default function LoginButton() {
   const { data: session } = useSession();
-  const user = useUserStore((state) => state.user);
   const setUser = useUserStore((state) => state.setUser);
 
   useEffect(() => {
@@ -29,5 +28,5 @@ export default function LoginButton() {
     );
   }
 
-  return <button onClick={() => signOut()}>{user.name} Sign out</button>;
+  return <button onClick={() => signOut()}>Sign out</button>;
 }

@@ -1,14 +1,15 @@
-import { groq } from "next-sanity";
-import client from "../sanityClient";
+import { groq } from 'next-sanity';
+import client from '../sanityClient';
 
 export async function createUser(user: User) {
+  console.log(user, 'sanity-utils/user-utils.ts');
   await client.create({
     _type: 'user',
     name: user.name,
-    id: user.uid,
-    slug:{
-      current: user.slug
-    }
+    uid: user.uid,
+    slug: {
+      current: user.slug,
+    },
   });
   return user;
 }
@@ -41,4 +42,3 @@ export async function getUser(id: string): Promise<User> {
 
   return user;
 }
-
