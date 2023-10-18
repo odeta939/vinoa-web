@@ -2,14 +2,17 @@
 @tailwind components;
 @tailwind utilities;
 
-html {
-  @apply text-grey-highlight;
-}
+
 body {
-  @apply bg-violet-light;
+  @apply bg-white;
+  @apply text-black;
 
   min-height: 100vh;
 }
-nav {
-  @apply bg-violet-darker;
+
+nav li{
+  @apply bg-[#F5F5F5];
+  @apply rounded-md;
+  @apply px-4;
+  @apply py-2;
 }

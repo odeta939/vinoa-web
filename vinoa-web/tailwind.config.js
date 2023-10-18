@@ -12,6 +12,7 @@ module.exports = {
       //   serif: ['Merriweather', 'serif'],
       // },
       colors: {
+        "accent" : '#800020',
         "gold-highlight": "#FFBB56",
         "grey-highlight": "#BCBACF",
         "violet-dark": "#232044",
