@@ -4,7 +4,7 @@ import Link from 'next/link';
 interface WineProps {
   wine: Wine;
 }
-const WineCard = ({
+const WineListCard = ({
   wine: { name, imageUrl, country, region, colour, smell, taste, slug },
 }: WineProps) => {
   return (
@@ -35,4 +35,4 @@ const WineCard = ({
     </Link>
   );
 };
-export default WineCard;
+export default WineListCard;

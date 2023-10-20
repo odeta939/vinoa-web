@@ -1,4 +1,4 @@
-import WineCard from '@/components/WineCard';
+import WineListCard from '@/components/WineListCard';
 import { getWines } from '@/sanity/sanity-utils/wine-utils';
 
 export const dynamic = 'force-dynamic';
@@ -11,7 +11,7 @@ const WinesPage = async () => {
       <ul>
         {wines.map((wine) => (
           <li key={wine._id}>
-            <WineCard wine={wine}></WineCard>
+            <WineListCard wine={wine}></WineListCard>
           </li>
         ))}
       </ul>

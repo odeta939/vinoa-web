@@ -1,7 +1,7 @@
 'use client';
 import ProfileLogo from '@/lib/assets/ProfileLogo';
 import { BsPencilFill } from 'react-icons/bs';
-import WineCard from '../WineCard';
+import WineCard from '../WineListCard';
 import { useEffect } from 'react';
 import { useSanityUserStore, useUserStore } from '@/store/store';
 
