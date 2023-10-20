@@ -6,14 +6,14 @@ import { usePathname } from 'next/navigation';
 const Navigation = () => {
   const path = usePathname();
   return (
-    <nav className='p-4'>
-      <div className='flex place-items-center justify-between text-l'>
-        <div className='flex items-center'>
+    <nav className='max-w-screen w-full fixed bottom-0 md:static md:top-0 p-4 bg-white'>
+      <div className='grid md:grid-cols-2  text-l'>
+        <div className='md:block items-center hidden'>
           <Link href={'/'}>
             <Logo color='#800020' />
           </Link>
         </div>
-        <ul className='flex justify-end items-center gap-6 '>
+        <ul className='grid grid-cols-3 content-center gap-4'>
           <li
             className={`${path == '/' && 'ring-2 ring-black rounded-md'} ${
               path != '/' && 'hover:underline-offset-4 hover:underline'

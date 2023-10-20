@@ -4,6 +4,8 @@ import WineCard from '../WineCard';
 import { useEffect } from 'react';
 import { useSanityUserStore, useUserStore } from '@/store/store';
 import LoginButton from '../LoginButton';
+import Logo from '@/lib/assets/Logo';
+import Link from 'next/link';
 
 const UserProfile = () => {
   const globalUser = useUserStore((state) => state.user);
@@ -31,33 +33,40 @@ const UserProfile = () => {
     fetchData();
   }, [globalUser.session]);
 
-  console.log(globalUser, 'globalUser');
   console.log(sanityUser, 'sanityUser');
-  if (sanityUser) {
+  if (sanityUser && sanityUser.name != '') {
     return (
-      <div className='flex flex-col items-center pt-12 h-full gap-10'>
-        <ProfileLogo />
-        <div className='flex flex-row gap-3'>
-          <p>{sanityUser.name}</p>|
+      <div className='flex flex-col md:pt-4'>
+        <div className='md:hidden grid justify-center'>
+          <Link href={'/'}>
+            <Logo color='#800020' />
+          </Link>
+        </div>
+        <div className='place-self-center'>
+          <ProfileLogo />
+        </div>
+        <div className='flex flex-col lg:flex-row lg:ring gap-3 place-self-center'>
+          <p className='p-4'>{sanityUser.name}</p>
           <LoginButton />
         </div>
-        <div className='text-center m-14 grid xl:grid-cols-4 lg:grid-cols-2 md:grid-cols-1'>
+
+        <div className='mx-8 grid grid-flow-row  md:grid-cols-2 lg:grid-cols-3'>
           {sanityUser.wines &&
             sanityUser.wines.map((wine) => (
               <WineCard key={wine._id} wine={wine} />
             ))}
           {!sanityUser.wines ||
             (sanityUser.wines.length === 0 && (
-              <p className=''>Wines you tasted will be shown here</p>
+              <p>Wines you tasted will be shown here</p>
             ))}
         </div>
       </div>
     );
   } else {
     return (
-      <>
+      <div className='grid justify-center pt-32'>
         <LoginButton />
-      </>
+      </div>
     );
   }
 };
