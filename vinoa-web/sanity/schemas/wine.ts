@@ -77,6 +77,11 @@ export default defineType({
       type: 'string',
     }),
     defineField({
+      name: 'body',
+      title: 'Body of Wine',
+      type: 'string',
+    }),
+    defineField({
       name: 'users',
       title: 'People who tasted this wine',
       type: 'array',

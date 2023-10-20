@@ -7,7 +7,6 @@ import { getCurrentMonthAsRange } from '@/lib/utils/helperFunctions';
 export const dynamic = 'force-dynamic';
 
 export default async function Home() {
-  const wines = await getWines();
   const date = getCurrentMonthAsRange();
 
   const thisMonthsWines: Wine[] = await getThisMonthsWines(date.from, date.to);
