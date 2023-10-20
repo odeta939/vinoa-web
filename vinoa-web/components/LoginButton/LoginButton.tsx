@@ -5,15 +5,12 @@ import { useEffect } from 'react';
 
 export default function LoginButton() {
   const { data: session } = useSession();
-  const user = useUserStore((state) => state.user);
   const setUser = useUserStore((state) => state.setUser);
 
   useEffect(() => {
     if (session) {
       const { name, id } = session.user as SessionUser;
-      setUser({ name: name, id: id });
-    } else {
-      setUser({ name: '', id: '' });
+      setUser({ name: name, id: id, session: true });
     }
   }, [session]);
 
@@ -29,5 +26,14 @@ export default function LoginButton() {
     );
   }
 
-  return <button onClick={() => signOut()}>{user.name} Sign out</button>;
+  return (
+    <button
+      onClick={() => {
+        signOut();
+        setUser({ name: '', id: '', session: false });
+      }}
+    >
+      Sign out
+    </button>
+  );
 }

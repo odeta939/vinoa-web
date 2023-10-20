@@ -1,20 +1,20 @@
 'use client';
 import ProfileLogo from '@/lib/assets/ProfileLogo';
-import { BsPencilFill } from 'react-icons/bs';
 import WineCard from '../WineCard';
 import { useEffect } from 'react';
 import { useSanityUserStore, useUserStore } from '@/store/store';
+import LoginButton from '../LoginButton';
 
 const UserProfile = () => {
   const globalUser = useUserStore((state) => state.user);
-  const user = useSanityUserStore((state) => state.sanityUser);
-  const setUser = useSanityUserStore((state) => state.setSanityUser);
+  const sanityUser = useSanityUserStore((state) => state.sanityUser);
+  const setSanityUser = useSanityUserStore((state) => state.setSanityUser);
 
   useEffect(() => {
     const fetchData = async () => {
       const userToPost = {
         name: globalUser.name,
-        id: globalUser.id,
+        uid: globalUser.id,
         slug: globalUser.name.toLowerCase().replace(/\s/g, '-'),
         wines: [],
       };
@@ -25,32 +25,40 @@ const UserProfile = () => {
         },
         body: JSON.stringify(userToPost),
       });
-
       let { user } = await response.json();
-      setUser(user);
+      setSanityUser(user);
     };
     fetchData();
-  }, []);
+  }, [globalUser.session]);
 
-  return (
-    <div className='flex flex-col items-center pt-12 h-full gap-10'>
-      <ProfileLogo />
-      <div className='flex flex-row gap-3'>
-        <p>{user.name}</p>|
-        <BsPencilFill />
+  console.log(globalUser, 'globalUser');
+  console.log(sanityUser, 'sanityUser');
+  if (sanityUser) {
+    return (
+      <div className='flex flex-col items-center pt-12 h-full gap-10'>
+        <ProfileLogo />
+        <div className='flex flex-row gap-3'>
+          <p>{sanityUser.name}</p>|
+          <LoginButton />
+        </div>
+        <div className='text-center m-14 grid xl:grid-cols-4 lg:grid-cols-2 md:grid-cols-1'>
+          {sanityUser.wines &&
+            sanityUser.wines.map((wine) => (
+              <WineCard key={wine._id} wine={wine} />
+            ))}
+          {!sanityUser.wines ||
+            (sanityUser.wines.length === 0 && (
+              <p className=''>Wines you tasted will be shown here</p>
+            ))}
+        </div>
       </div>
-
-      <div className='bg-grey-highlight m-14 grid xl:grid-cols-4 lg:grid-cols-2 md:grid-cols-1'>
-        {user.wines &&
-          user.wines.map((wine) => <WineCard key={wine._id} wine={wine} />)}
-        {!user.wines ||
-          (user.wines.length == 0 && (
-            <p className='text-violet-darker'>
-              Here you will be able to see wines you rate in the future
-            </p>
-          ))}
-      </div>
-    </div>
-  );
+    );
+  } else {
+    return (
+      <>
+        <LoginButton />
+      </>
+    );
+  }
 };
 export default UserProfile;
