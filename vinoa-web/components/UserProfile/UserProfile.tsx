@@ -1,20 +1,25 @@
 'use client';
 import ProfileLogo from '@/lib/assets/ProfileLogo';
+
 import { BsPencilFill } from 'react-icons/bs';
 import WineCard from '../WineListCard';
+
 import { useEffect } from 'react';
 import { useSanityUserStore, useUserStore } from '@/store/store';
+import LoginButton from '../LoginButton';
+import Logo from '@/lib/assets/Logo';
+import Link from 'next/link';
 
 const UserProfile = () => {
   const globalUser = useUserStore((state) => state.user);
-  const user = useSanityUserStore((state) => state.sanityUser);
-  const setUser = useSanityUserStore((state) => state.setSanityUser);
+  const sanityUser = useSanityUserStore((state) => state.sanityUser);
+  const setSanityUser = useSanityUserStore((state) => state.setSanityUser);
 
   useEffect(() => {
     const fetchData = async () => {
       const userToPost = {
         name: globalUser.name,
-        id: globalUser.id,
+        uid: globalUser.id,
         slug: globalUser.name.toLowerCase().replace(/\s/g, '-'),
         wines: [],
       };
@@ -25,32 +30,47 @@ const UserProfile = () => {
         },
         body: JSON.stringify(userToPost),
       });
-
       let { user } = await response.json();
-      setUser(user);
+      setSanityUser(user);
     };
     fetchData();
-  }, []);
+  }, [globalUser.session]);
 
-  return (
-    <div className='flex flex-col items-center pt-12 h-full gap-10'>
-      <ProfileLogo />
-      <div className='flex flex-row gap-3'>
-        <p>{user.name}</p>|
-        <BsPencilFill />
-      </div>
+  console.log(sanityUser, 'sanityUser');
+  if (sanityUser && sanityUser.name != '') {
+    return (
+      <div className='flex flex-col md:pt-4'>
+        <div className='md:hidden grid justify-center'>
+          <Link href={'/'}>
+            <Logo color='#800020' />
+          </Link>
+        </div>
+        <div className='place-self-center'>
+          <ProfileLogo />
+        </div>
+        <div className='flex flex-col lg:flex-row lg:ring gap-3 place-self-center'>
+          <p className='p-4'>{sanityUser.name}</p>
+          <LoginButton />
+        </div>
 
-      <div className='bg-grey-highlight m-14 grid xl:grid-cols-4 lg:grid-cols-2 md:grid-cols-1'>
-        {user.wines &&
-          user.wines.map((wine) => <WineCard key={wine._id} wine={wine} />)}
-        {!user.wines ||
-          (user.wines.length == 0 && (
-            <p className='text-violet-darker'>
-              Here you will be able to see wines you rate in the future
-            </p>
-          ))}
+        <div className='mx-8 grid grid-flow-row  md:grid-cols-2 lg:grid-cols-3'>
+          {sanityUser.wines &&
+            sanityUser.wines.map((wine) => (
+              <WineCard key={wine._id} wine={wine} />
+            ))}
+          {!sanityUser.wines ||
+            (sanityUser.wines.length === 0 && (
+              <p>Wines you tasted will be shown here</p>
+            ))}
+        </div>
       </div>
-    </div>
-  );
+    );
+  } else {
+    return (
+      <div className='grid justify-center pt-32'>
+        <LoginButton />
+      </div>
+    );
+  }
 };
 export default UserProfile;

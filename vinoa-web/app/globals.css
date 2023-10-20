@@ -2,7 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-
 body {
   @apply bg-white;
   @apply text-black;
@@ -11,7 +10,7 @@ body {
   min-height: 100vh;
 }
 
-nav li{
+nav li {
   @apply bg-[#F5F5F5];
   @apply rounded-md;
   @apply px-4;
