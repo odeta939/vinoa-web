@@ -6,7 +6,7 @@ import { usePathname } from 'next/navigation';
 const Navigation = () => {
   const path = usePathname();
   return (
-    <nav className='p-4'>
+    <nav className='p-4 h-[10vh]'>
       <div className='flex place-items-center justify-between text-l'>
         <div className='flex items-center'>
           <Link href={'/'}>
