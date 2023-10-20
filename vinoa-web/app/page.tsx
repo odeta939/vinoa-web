@@ -12,17 +12,15 @@ export default async function Home() {
   const thisMonthsWines: Wine[] = await getThisMonthsWines(date.from, date.to);
 
   return (
-    <main className='h-[90vh] flex flex-col'>
-      <div className='flex flex-grow'>
-        <div className='grid place-items-center grid-cols-1 lg:grid-cols-3 w-full'>
-          {thisMonthsWines.map((wine, index) => {
-            return (
-              <div key={index}>
-                <WineTastingCard wine={wine} />
-              </div>
-            );
-          })}
-        </div>
+    <main className='flex flex-grow justify-center items-center'>
+      <div className='flex flex-row  flex-grow justify-around'>
+        {thisMonthsWines.map((wine, index) => {
+          return (
+            <div className='' key={index}>
+              <WineTastingCard wine={wine} />
+            </div>
+          );
+        })}
       </div>
     </main>
   );
