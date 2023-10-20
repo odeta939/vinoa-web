@@ -19,7 +19,9 @@ export default async function Home() {
           {thisMonthsWines.map((wine, index) =>{
             
             return(
-              <WineTastingCard wine={wine}/>
+              <div key={index}>
+                <WineTastingCard wine={wine}/>
+              </div>
             )
           })}
         </div>
