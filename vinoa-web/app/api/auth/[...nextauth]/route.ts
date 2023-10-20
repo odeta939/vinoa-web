@@ -9,18 +9,19 @@ const authenticator = NextAuth({
       clientSecret: env.GOOGLE_CLIENT_SECRET ?? '',
     }),
   ],
+  secret: env.NEXTAUTH_SECRET ?? '',
   callbacks: {
-    async jwt({ token, account,}) {
-        if (account) {
-            token.idToken = account.id_token
-            token.expiresAt = account.expires_at
-        }
+    async jwt({ token, account }) {
+      if (account) {
+        token.idToken = account.id_token;
+        token.expiresAt = account.expires_at;
+      }
 
-        return token
+      return token;
     },
-    async session({ session, token }:any) {
-        session.user.id = token.sub
-        return session
+    async session({ session, token }: any) {
+      session.user.id = token.sub;
+      return session;
     },
   },
 });
