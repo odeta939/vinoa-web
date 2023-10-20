@@ -13,7 +13,7 @@ const Navigation = () => {
             <Logo color='#800020' />
           </Link>
         </div>
-        <ul className='grid grid-cols-3 content-center gap-4'>
+        <ul className='grid grid-cols-3 content-center text-center gap-4'>
           <li
             className={`${path == '/' && 'ring-2 ring-black rounded-md'} ${
               path != '/' && 'hover:underline-offset-4 hover:underline'
