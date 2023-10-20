@@ -11,7 +11,6 @@ type Wine = {
   region: string;
   smell: string;
   taste: string;
-  colour: string;
   body:string;
   users: User[];
 };

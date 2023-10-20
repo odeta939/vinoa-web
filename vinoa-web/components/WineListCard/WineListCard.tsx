@@ -5,7 +5,7 @@ interface WineProps {
   wine: Wine;
 }
 const WineListCard = ({
-  wine: { name, imageUrl, country, region, colour, smell, taste, slug },
+  wine: { name, imageUrl, country, region, smell, taste, body, slug },
 }: WineProps) => {
   return (
     <Link href={`/wines/${slug}`}>
@@ -26,7 +26,7 @@ const WineListCard = ({
           <div className='flex flex-col grow h-auto'>
             <p>Country: {country}</p>
             <p>Region: {region}</p>
-            <p>Color: {colour}</p>
+            <p>Body: {body}</p>
             <p>Smell: {smell}</p>
             <p>Taste: {taste}</p>
           </div>
