@@ -1,4 +1,4 @@
-import WineCard from '@/components/WineCard';
+import WineListCard from '@/components/WineListCard';
 import { getCurrentMonthAsRange } from '@/lib/utils/helperFunctions';
 import { getThisMonthsWines } from '@/sanity/sanity-utils/wine-utils';
 
@@ -13,7 +13,7 @@ const MonthsWinePage = async () => {
       <ul>
         {wines.map((wine) => (
           <li key={wine._id}>
-            <WineCard wine={wine}></WineCard>
+            <WineListCard wine={wine}></WineListCard>
           </li>
         ))}
       </ul>

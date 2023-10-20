@@ -5,7 +5,9 @@
 body {
   @apply bg-white;
   @apply text-black;
-  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
 nav li {

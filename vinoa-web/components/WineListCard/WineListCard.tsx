@@ -4,8 +4,8 @@ import Link from 'next/link';
 interface WineProps {
   wine: Wine;
 }
-const WineCard = ({
-  wine: { name, imageUrl, country, region, colour, smell, taste, slug },
+const WineListCard = ({
+  wine: { name, imageUrl, country, region, smell, taste, body, slug },
 }: WineProps) => {
   return (
     <Link href={`/wines/${slug}`}>
@@ -26,7 +26,7 @@ const WineCard = ({
           <div className='flex flex-col grow h-auto'>
             <p>Country: {country}</p>
             <p>Region: {region}</p>
-            <p>Color: {colour}</p>
+            <p>Body: {body}</p>
             <p>Smell: {smell}</p>
             <p>Taste: {taste}</p>
           </div>
@@ -35,4 +35,4 @@ const WineCard = ({
     </Link>
   );
 };
-export default WineCard;
+export default WineListCard;

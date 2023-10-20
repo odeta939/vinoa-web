@@ -18,6 +18,7 @@ module.exports = {
         "violet-dark": "#232044",
         "violet-darker": "#1B183B",
         "violet-light": "#322E59",
+        "wine-red": "#8C0B0F",
       },
     },
   },

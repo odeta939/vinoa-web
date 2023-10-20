@@ -3,7 +3,7 @@ import { AiOutlineArrowRight, AiOutlineArrowLeft } from 'react-icons/ai';
 import 'swiper/css';
 import { Keyboard, Navigation } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import WineCard from '@/components/WineCard/WineCard';
+import WineListCard from '@/components/WineListCard/WineListCard';
 
 interface WineProps {
   wines: Wine[];
@@ -38,7 +38,7 @@ const WineCarousel = ({ wines }: WineProps) => {
         >
           {wines.map((wine) => (
             <SwiperSlide key={wine._id}>
-              <WineCard wine={wine} />
+              <WineListCard wine={wine} />
             </SwiperSlide>
           ))}
         </Swiper>
