@@ -40,11 +40,6 @@ const UserProfile = () => {
   if (sanityUser && sanityUser.name != '') {
     return (
       <div className='flex flex-col md:pt-4'>
-        <div className='md:hidden grid justify-center'>
-          <Link href={'/'}>
-            <Logo color='#800020' />
-          </Link>
-        </div>
         <div className='place-self-center'>
           <ProfileLogo />
         </div>

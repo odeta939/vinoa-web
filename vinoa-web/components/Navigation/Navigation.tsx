@@ -6,11 +6,9 @@ import { usePathname } from 'next/navigation';
 const Navigation = () => {
   const path = usePathname();
   return (
-
     <nav className='max-w-screen w-full fixed bottom-0 md:static md:top-0 p-4 bg-white'>
       <div className='grid md:grid-cols-2  text-l'>
         <div className='md:block items-center hidden'>
-
           <Link href={'/'}>
             <Logo color='#800020' />
           </Link>

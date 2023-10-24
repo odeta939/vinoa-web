@@ -3,6 +3,8 @@ import './globals.css';
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import SessionProviders from '@/components/SessionProviders/SessionProviders';
+import Logo from '@/lib/assets/Logo';
+import Link from 'next/link';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -19,6 +21,11 @@ export default function RootLayout({
     <html lang='en'>
       <body className={`${inter.className}`}>
         <SessionProviders>
+          <div className='md:hidden grid justify-center'>
+            <Link href={'/'}>
+              <Logo color='#800020' />
+            </Link>
+          </div>
           <Navigation></Navigation>
           {children}
         </SessionProviders>
