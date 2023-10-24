@@ -10,7 +10,7 @@ interface RatingProps {
 }
 const Rating = ({ label, rating, maxRating = 5, setRating }: RatingProps) => {
   return (
-    <div className='mt-4 rating flex flex-col'>
+    <div className='mt-4 flex flex-col z-0'>
       {label && <p>{label}</p>}
       <div className='flex flex-row'>
         {Array.from({ length: maxRating }, (_, i) => {
@@ -26,7 +26,8 @@ const Rating = ({ label, rating, maxRating = 5, setRating }: RatingProps) => {
               onClick={handleOnClick}
               key={i}
               className={
-                'text-wine-red text-xl' + (setRating ? ' cursor-pointer' : '')
+                'text-wine-red z-0 text-xl' +
+                (setRating ? ' cursor-pointer' : '')
               }
             />
           );

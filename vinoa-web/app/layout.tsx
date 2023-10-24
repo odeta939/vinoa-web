@@ -27,7 +27,7 @@ export default function RootLayout({
             </Link>
           </div>
           <Navigation></Navigation>
-          {children}
+          <div className='mb-36 md:mb-5'>{children}</div>
         </SessionProviders>
       </body>
     </html>
