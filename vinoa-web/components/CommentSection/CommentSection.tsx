@@ -10,7 +10,7 @@ const CommentSection = ({ wine }: Props) => {
   return (
     <div className='mt-10'>
       <ReviewToPost wineId={_id} />
-      {/* <PreviousReviews slug={slug} /> */}
+      <PreviousReviews slug={slug} />
     </div>
   );
 };
