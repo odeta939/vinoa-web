@@ -25,7 +25,7 @@ const PreviousReviews = ({ slug }: Props) => {
           <div className='pb-4 pt-2' key={idx}>
             <div className='flex flex-row'>
               <Avatar name={'Some Name'} />
-              <div className=''>
+              <div className='flex flex-col justify-between'>
                 <p className='text-violet-darker'>{review.comment}</p>
                 <Rating rating={review.rating} />
               </div>
