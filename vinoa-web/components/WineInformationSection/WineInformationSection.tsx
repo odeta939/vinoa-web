@@ -23,7 +23,7 @@ const WineInformationSection = async ({ wine }: Props) => {
             <p>{wine.description}</p>
           </div>
           <div className='flex flex-row gap-2 '>
-            <div className='grid grid-flow-row gap-4 font-semibold'>
+            <div className='grid grid-flow-row gap-2 font-semibold'>
               <p>Taste</p>
               <p>Aroma</p>
               <p>Body</p>
