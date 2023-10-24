@@ -10,27 +10,28 @@ interface RatingProps {
 }
 const Rating = ({ label, rating, maxRating = 5, setRating }: RatingProps) => {
   return (
-    <div className='mt-4 rating'>
+    <div className='mt-4 rating flex flex-col'>
       {label && <p>{label}</p>}
-      {Array.from({ length: maxRating }, (_, i) => {
-        const isFilled = i < rating;
-        const StarIcon = isFilled ? AiFillStar : AiOutlineStar;
-        const handleOnClick = () => {
-          if (setRating) {
-            setRating(i + 1);
-          }
-        };
-        return (
-          <StarIcon
-            onClick={handleOnClick}
-            key={i}
-            className={
-              'text-gold-highlight text-xl' +
-              (setRating ? ' cursor-pointer' : '')
+      <div className='flex flex-row'>
+        {Array.from({ length: maxRating }, (_, i) => {
+          const isFilled = i < rating;
+          const StarIcon = isFilled ? AiFillStar : AiOutlineStar;
+          const handleOnClick = () => {
+            if (setRating) {
+              setRating(i + 1);
             }
-          />
-        );
-      })}
+          };
+          return (
+            <StarIcon
+              onClick={handleOnClick}
+              key={i}
+              className={
+                'text-wine-red text-xl' + (setRating ? ' cursor-pointer' : '')
+              }
+            />
+          );
+        })}
+      </div>
     </div>
   );
 };
