@@ -8,7 +8,7 @@ interface Props {
 const CommentSection = ({ wine }: Props) => {
   const { slug = '', _id } = wine;
   return (
-    <div className=''>
+    <div className='mt-10'>
       <ReviewToPost wineId={_id} />
       {/* <PreviousReviews slug={slug} /> */}
     </div>
