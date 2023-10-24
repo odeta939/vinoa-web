@@ -1,5 +1,3 @@
-import WineCarousel from '@/components/WineCarousel';
-import WineButton from '@/components/WineButton';
 import { getThisMonthsWines, getWines } from '@/sanity/sanity-utils/wine-utils';
 import WineTastingCard from '@/components/WineTastingCard';
 import { getCurrentMonthAsRange } from '@/lib/utils/helperFunctions';
