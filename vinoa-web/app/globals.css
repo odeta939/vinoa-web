@@ -10,6 +10,16 @@ body {
   min-height: 100vh;
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  @apply text-2xl;
+  @apply font-["Noto"];
+}
+
 nav li {
   @apply bg-[#F5F5F5];
   @apply rounded-md;

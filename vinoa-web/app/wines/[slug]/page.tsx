@@ -1,5 +1,6 @@
 import CommentSection from '@/components/CommentSection';
 import Rating from '@/components/Rating';
+import WineInformationSection from '@/components/WineInformationSection/WineInformationSection';
 import { getAverageRating } from '@/lib/utils/helperFunctions';
 import { getReviewsForWine } from '@/sanity/sanity-utils/review-utils';
 import { getWine } from '@/sanity/sanity-utils/wine-utils';
@@ -11,34 +12,13 @@ interface Props {
 
 const WinePage = async ({ params }: Props) => {
   const slug = params.slug;
-  const wine: Wine = await getWine(slug);
-  const reviews = await getReviewsForWine(slug);
-  const averageRating = getAverageRating(reviews);
+  const wine = await getWine(slug);
 
   return (
-    <div className=' mt-10'>
-      <div className='grid grid-flow-col grid-cols-6 justify-items-end gap-4 '>
-        <div className='col-start-2  '>
-          <Image
-            width={160}
-            height={180}
-            alt='Image of a wine bottle'
-            src={wine.imageUrl}
-          />
-          <Rating
-            label={`Rated ${reviews.length} times`}
-            rating={averageRating}
-          />
-        </div>
+    <div className='px-4 md:px-14'>
+      <WineInformationSection wine={wine} />
 
-        <div className='col-start-3 col-span-3 '>
-          <h1 className='text-2xl font-medium'>{wine.name}</h1>
-          <p>{wine.description}</p>
-        </div>
-      </div>
-      <div className='bg-violet-dark mx-14 mt-8'>
-        <CommentSection wine={wine} />
-      </div>
+      <CommentSection wine={wine} />
     </div>
   );
 };
