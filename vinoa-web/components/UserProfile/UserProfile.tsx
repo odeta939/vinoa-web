@@ -1,14 +1,9 @@
 'use client';
 import ProfileLogo from '@/lib/assets/ProfileLogo';
-
-import { BsPencilFill } from 'react-icons/bs';
 import WineCard from '../WineListCard';
-
 import { useEffect } from 'react';
 import { useSanityUserStore, useUserStore } from '@/store/store';
 import LoginButton from '../LoginButton';
-import Logo from '@/lib/assets/Logo';
-import Link from 'next/link';
 
 const UserProfile = () => {
   const globalUser = useUserStore((state) => state.user);
@@ -36,7 +31,6 @@ const UserProfile = () => {
     fetchData();
   }, [globalUser.session]);
 
-  console.log(sanityUser, 'sanityUser');
   if (sanityUser && sanityUser.name != '') {
     return (
       <div className='flex flex-col md:pt-4'>
@@ -58,12 +52,6 @@ const UserProfile = () => {
               <p>Wines you tasted will be shown here</p>
             ))}
         </div>
-      </div>
-    );
-  } else {
-    return (
-      <div className='grid justify-center pt-32'>
-        <LoginButton />
       </div>
     );
   }

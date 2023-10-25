@@ -18,6 +18,7 @@ export async function getUser(id: string): Promise<User> {
     groq`*[_type == "user" && uid == $id][0]{
     name,
     uid,
+    _id,
     "slug" : slug.current,
     "imageUrl" : image.asset->url,
     "wines" : *[_type == "wine" && references(^._id)][]{

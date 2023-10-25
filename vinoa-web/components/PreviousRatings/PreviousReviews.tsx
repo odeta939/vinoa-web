@@ -4,6 +4,7 @@ import Image from 'next/image';
 import Rating from '../Rating';
 import { useEffect, useState } from 'react';
 import Avatar from '../Avatar';
+import { useUserStore } from '@/store/store';
 
 interface Props {
   slug: string;
@@ -11,6 +12,8 @@ interface Props {
 
 const PreviousReviews = ({ slug }: Props) => {
   const [reviews, setReviews] = useState<Review[]>([]);
+  const globalUser = useUserStore((state) => state.user);
+
   useEffect(() => {
     const getReviews = async () => {
       const reviews = await getReviewsForWine(slug);
@@ -24,7 +27,7 @@ const PreviousReviews = ({ slug }: Props) => {
         return (
           <div className='pb-4 pt-2' key={idx}>
             <div className='flex flex-row'>
-              <Avatar name={'Some Name'} />
+              <Avatar name={review.userName} />
               <div className='flex flex-col justify-between'>
                 <p className='text-violet-darker'>{review.comment}</p>
                 <Rating rating={review.rating} />

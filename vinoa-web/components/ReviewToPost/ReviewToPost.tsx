@@ -2,6 +2,8 @@
 import { useState } from 'react';
 import Rating from '../Rating';
 import Avatar from '../Avatar';
+import { useUserStore } from '@/store/store';
+import { globalAgent } from 'http';
 
 interface Props {
   wineId: string;
@@ -9,15 +11,16 @@ interface Props {
 const ReviewToPost = ({ wineId }: Props) => {
   const [review, setReview] = useState('');
   const [rating, setRating] = useState(0);
+  const globalUser = useUserStore((state) => state.user);
 
   const isDisabled = rating === 0 || review === '';
 
   const handleOnClick = async () => {
-    let reviewToPost: Review = {
+    let reviewToPost: ReviewDTO = {
       rating: rating,
       comment: review,
       wineId: wineId,
-      userId: '',
+      userId: globalUser.id,
     };
 
     await fetch('/api/review', {
@@ -38,7 +41,7 @@ const ReviewToPost = ({ wineId }: Props) => {
   return (
     <div className='flex flex-col'>
       <div className='flex flex-row justify-between px-5 lg:px-20'>
-        <Avatar name='John Doe' />
+        <Avatar name={globalUser.name} />
         <div className='flex-grow'>
           <div>
             <textarea
