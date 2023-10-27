@@ -26,3 +26,9 @@ nav li {
   @apply px-4;
   @apply py-2;
 }
+
+button {
+  @apply bg-[#F5F5F5];
+  @apply px-3;
+  @apply py-1;
+}
