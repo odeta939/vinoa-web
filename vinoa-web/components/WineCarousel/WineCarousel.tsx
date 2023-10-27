@@ -1,6 +1,6 @@
 'use client';
 import 'swiper/css';
-import { Keyboard, Navigation } from 'swiper/modules';
+import { EffectCards, Keyboard, Navigation } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import WineTastingCard from '../WineTastingCard';
 
@@ -11,26 +11,32 @@ interface WineProps {
 const WineCarousel = ({ wines }: WineProps) => {
   return (
     <>
-      <section>
+      <section className=''>
         <Swiper
-          slidesPerView={1}
-          spaceBetween={0}
-          speed={600}
-          navigation={{
-            nextEl: '.image-swiper-button-next',
-            prevEl: '.image-swiper-button-prev',
-            disabledClass: 'swiper-button-disabled',
+          effect='cards'
+          grabCursor={true}
+          cardsEffect={{
+            slideShadows: false,
+            perSlideRotate: 5,
           }}
+          centeredSlides={true}
+          speed={400}
           keyboard={{
             enabled: true,
           }}
-          modules={[Navigation, Keyboard]}
+          modules={[Navigation, Keyboard, EffectCards]}
           className='mySwiper'
         >
           {wines.map((wine, index) => {
             return (
-              <SwiperSlide key={wine._id}>
-                <WineTastingCard wine={wine} border={true} />
+              <SwiperSlide key={wine._id} className='pt-5'>
+                {({ isActive }) => (
+                  <div
+                    className={`${!isActive && 'blur-sm'} m-auto max-w-[280px]`}
+                  >
+                    <WineTastingCard wine={wine} border={isActive} />
+                  </div>
+                )}
               </SwiperSlide>
             );
           })}
