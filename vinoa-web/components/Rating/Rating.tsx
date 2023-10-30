@@ -26,7 +26,7 @@ const Rating = ({ label, rating, maxRating = 5, setRating }: RatingProps) => {
               onClick={handleOnClick}
               key={i}
               className={
-                'text-wine-red z-0 text-xl' +
+                'text-wine-red z-0 text-sm md:text-xl' +
                 (setRating ? ' cursor-pointer' : '')
               }
             />

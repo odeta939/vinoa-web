@@ -1,22 +1,12 @@
-import WineListCard from '@/components/WineListCard';
+import WineList from '@/components/WineList';
+import { getTags } from '@/sanity/sanity-utils/tag-utils';
 import { getWines } from '@/sanity/sanity-utils/wine-utils';
 
 export const dynamic = 'force-dynamic';
-
 const WinesPage = async () => {
-  const wines: Wine[] = await getWines();
-  return (
-    <div>
-      <h1>Wine Page</h1>
-      <ul>
-        {wines.map((wine) => (
-          <li key={wine._id}>
-            <WineListCard wine={wine}></WineListCard>
-          </li>
-        ))}
-      </ul>
-    </div>
-  );
+  const wines = await getWines();
+  const tags: string[] = await getTags();
+  return <WineList wines={wines} tags={tags} />;
 };
 
 export default WinesPage;

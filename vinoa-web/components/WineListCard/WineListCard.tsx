@@ -1,34 +1,56 @@
 'use client';
 import Image from 'next/image';
 import Link from 'next/link';
+import Rating from '../Rating';
+import { getReviewsForWine } from '@/sanity/sanity-utils/review-utils';
+import { getAverageRating } from '@/lib/utils/helperFunctions';
+import { use, useEffect, useState } from 'react';
+import user from '@/sanity/schemas/user';
 interface WineProps {
   wine: Wine;
 }
 const WineListCard = ({
-  wine: { name, imageUrl, country, region, smell, taste, body, slug },
+  wine: { name, imageUrl, country, region, smell, taste, body, slug, price },
 }: WineProps) => {
+  const [reviews, setReviews] = useState([] as Review[]);
+
+  useEffect(() => {
+    const fetchReviews = async () => {
+      const reviewsFetched = await getReviewsForWine(slug);
+      setReviews(reviewsFetched);
+    };
+    fetchReviews();
+  }, []);
+
+  const averageRating = getAverageRating(reviews);
   return (
     <Link href={`/wines/${slug}`}>
-      <div className='bg-violet-dark m-4 p-4 flex flex-row'>
-        <div>
+      <div className='h-56 lg:h-60 md:w-[28rem] grid grid-cols-2 bg-grey-highlight rounded-xl p-2 shadow-[4px_4px_4px_rgba(0,0.30,0.30,0.30)]'>
+        <div className='w-28 h-[13rem] lg:h-56 lg:w-36 relative'>
           <Image
-            width={160}
-            height={160}
+            className='rounded-xl'
             alt='Image of a wine bottle'
             src={`${imageUrl}`}
+            layout='fill'
+            objectFit='cover'
           />
-
-          <p>Rating</p>
-          <p>1/5</p>
         </div>
-        <div className='px-5'>
-          <h1 className='text-2xl pb-4'>{name}</h1>
-          <div className='flex flex-col grow h-auto'>
-            <p>Country: {country}</p>
-            <p>Region: {region}</p>
-            <p>Body: {body}</p>
-            <p>Smell: {smell}</p>
-            <p>Taste: {taste}</p>
+        <div className='text-xs md:text-base justify-between flex flex-col gap-4'>
+          <h1 className='text-sm md:text-xl'>{name}</h1>
+          <div className='grid grid-cols-2 text-xs uppercase'>
+            <p className='font-semibold'>Taste</p> <p>{taste}</p>
+            <p className='font-semibold'>Aroma</p> <p>{smell}</p>
+            <p className='font-semibold'>Body</p> <p>{body}</p>
+          </div>
+          <div className='grid grid-cols-2 '>
+            <div className='place-self-start self-end'>
+              <Rating rating={averageRating} />
+            </div>
+            {price && (
+              <div className='place-self-end'>
+                <p className='text-wine-red font-bold'>{price} NOK</p>
+              </div>
+            )}
           </div>
         </div>
       </div>

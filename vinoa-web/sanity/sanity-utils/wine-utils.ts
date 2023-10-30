@@ -1,8 +1,6 @@
 import { groq } from 'next-sanity';
 import client from '../sanityClient';
 
-
-
 export async function getWines(): Promise<Array<Wine>> {
   const wines: Array<Wine> = await client.fetch(
     groq`*[_type == "wine"]{
