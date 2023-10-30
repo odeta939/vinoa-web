@@ -37,7 +37,7 @@ const UserProfile = () => {
         <div className='place-self-center'>
           <ProfileLogo />
         </div>
-        <div className='flex flex-col lg:flex-row lg:ring gap-3 place-self-center'>
+        <div className='flex flex-col lg:flex-row gap-3 place-self-center'>
           <p className='p-4'>{sanityUser.name}</p>
           <LoginButton />
         </div>
