@@ -25,7 +25,7 @@ const WineList = ({ wines, tags }: Props) => {
   return (
     <div>
       <div>
-        <ul className='flex flex-row justify-center md:justify-start text-xs md:text-base'>
+        <ul className='flex flex-row justify-center md:justify-start text-xs md:text-base md:pl-8 pb-6'>
           <li className='m-2'>
             <button
               onClick={() => handleOnClick('all')}
@@ -53,9 +53,9 @@ const WineList = ({ wines, tags }: Props) => {
         </ul>
       </div>
 
-      <ul className='flex flex-col md:grid md:grid-cols-2 mx-4 md:mx-8'>
+      <ul className='flex flex-col md:justify-items-center gap-4 items-center lg:grid lg:grid-cols-2 mx-4 lg:mx-8'>
         {winesToShow.map((wine) => (
-          <li className='m-4' key={wine._id}>
+          <li className='w-full md:w-auto lg:w-full mb-6' key={wine._id}>
             <WineListCard wine={wine}></WineListCard>
           </li>
         ))}

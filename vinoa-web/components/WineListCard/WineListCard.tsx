@@ -22,35 +22,27 @@ const WineListCard = ({
     fetchReviews();
   }, []);
 
-  // const reviews = await getReviewsForWine(wine.slug);
   const averageRating = getAverageRating(reviews);
   return (
     <Link href={`/wines/${slug}`}>
-      <div className='h-52 grid grid-cols-2 items-center bg-grey-highlight rounded-3xl p-2 shadow-[4px_4px_4px_rgba(0,0,0,0.30)]'>
-        <div className='w-28 h-44 relative'>
+      <div className='h-56 lg:h-60 md:w-[28rem] grid grid-cols-2 bg-grey-highlight rounded-xl p-2 shadow-[4px_4px_4px_rgba(0,0.30,0.30,0.30)]'>
+        <div className='w-28 h-[13rem] lg:h-56 lg:w-36 relative'>
           <Image
-            className='rounded-3xl'
+            className='rounded-xl'
             alt='Image of a wine bottle'
             src={`${imageUrl}`}
             layout='fill'
             objectFit='cover'
           />
         </div>
-        <div className='text-xs md:text-base grid grid-cols-1 gap-4'>
-          <h1 className='text-base md:text-xl'>{name}</h1>
-          <div className='grid grid-cols-2'>
-            <div className='font-medium'>
-              <p>Taste</p>
-              <p>Aroma</p>
-              <p>Body</p>
-            </div>
-            <div>
-              <p>{taste}</p>
-              <p>{smell}</p>
-              <p>{body}</p>
-            </div>
+        <div className='text-xs md:text-base justify-between flex flex-col gap-4'>
+          <h1 className='text-sm md:text-xl'>{name}</h1>
+          <div className='grid grid-cols-2 text-xs uppercase'>
+            <p className='font-semibold'>Taste</p> <p>{taste}</p>
+            <p className='font-semibold'>Aroma</p> <p>{smell}</p>
+            <p className='font-semibold'>Body</p> <p>{body}</p>
           </div>
-          <div className='grid grid-cols-2'>
+          <div className='grid grid-cols-2 '>
             <div className='place-self-start self-end'>
               <Rating rating={averageRating} />
             </div>
