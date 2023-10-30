@@ -38,7 +38,7 @@ module.exports = {
         'violet-light': '#322E59',
 
         // new colors
-        'grey-highlight': '#F5F5F5',
+        'grey-highlight': '#E6E6E6',
         'wine-violet': '#19082E',
         'wine-red': '#8C0B0F',
       },

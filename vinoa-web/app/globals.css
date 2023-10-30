@@ -8,6 +8,7 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  @apply font-["Noto"];
 }
 
 h1,
@@ -16,8 +17,10 @@ h3,
 h4,
 h5,
 h6 {
-  @apply text-2xl;
   @apply font-["Noto"];
+}
+p {
+  @apply font-["Julius"];
 }
 
 nav li {
@@ -25,4 +28,10 @@ nav li {
   @apply rounded-md;
   @apply px-4;
   @apply py-2;
+}
+
+button {
+  @apply bg-[#F5F5F5];
+  @apply px-3;
+  @apply py-1;
 }
