@@ -13,7 +13,7 @@ const ReviewToPost = ({ wineId }: Props) => {
   const [rating, setRating] = useState(0);
   const globalUser = useUserStore((state) => state.user);
 
-  const isDisabled = rating === 0 || review === '';
+  const isDisabled = rating === 0 || review === '' || globalUser.id === '';
 
   const handleOnClick = async () => {
     let reviewToPost: ReviewDTO = {

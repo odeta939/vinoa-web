@@ -16,8 +16,9 @@ const WineCarousel = ({ wines }: WineProps) => {
           effect='cards'
           grabCursor={true}
           cardsEffect={{
+            perSlideOffset: 15,
             slideShadows: false,
-            perSlideRotate: 5,
+            perSlideRotate: 10,
           }}
           centeredSlides={true}
           speed={400}

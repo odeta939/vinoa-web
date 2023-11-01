@@ -33,7 +33,7 @@ export default function LoginButton() {
 
   return (
     <button
-      className={`rounded-md bg-grey-highlight py-2 hover:underline-offset-4 hover:underline`}
+      className={`rounded-md px-4 bg-grey-highlight hover:underline-offset-4 hover:underline`}
       onClick={() => {
         signOut();
         setUser({ name: '', id: '', session: false });

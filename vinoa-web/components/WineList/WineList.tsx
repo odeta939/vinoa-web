@@ -55,7 +55,7 @@ const WineList = ({ wines, tags }: Props) => {
 
       <ul className='flex flex-col md:justify-items-center gap-4 items-center lg:grid lg:grid-cols-2 mx-4 lg:mx-8'>
         {winesToShow.map((wine) => (
-          <li className='w-full md:w-auto lg:w-full mb-6' key={wine._id}>
+          <li className='w-full md:w-auto mb-6' key={wine._id}>
             <WineListCard wine={wine}></WineListCard>
           </li>
         ))}
