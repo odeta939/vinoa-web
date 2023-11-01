@@ -45,7 +45,9 @@ const UserProfile = () => {
 
         <div className='mx-6 flex flex-col items-center lg:grid lg:grid-cols-2 lg:justify-items-center gap-4'>
           {sanityUser.wines &&
-            sanityUser.wines.map((wine) => <WineCardWithReview wine={wine} />)}
+            sanityUser.wines.map((wine) => (
+              <WineCardWithReview wine={wine} key={wine._id} />
+            ))}
           {!sanityUser.wines ||
             (sanityUser.wines.length === 0 && (
               <p>Wines you tasted will be shown here</p>
