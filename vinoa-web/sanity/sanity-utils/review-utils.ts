@@ -9,6 +9,8 @@ export async function createReview(review: ReviewDTO) {
     wine: { _ref: review.wineId, _type: 'reference' },
     user: { _ref: review.userId, _type: 'reference' },
   });
+
+  await client.patch(review.wineId).setIfMissing({users: []}).append('users', [{_type: 'reference', _ref: review.userId}]).commit({autoGenerateArrayKeys: true});
 }
 
 export async function getReviewsForWine(slug: string): Promise<Array<Review>> {
