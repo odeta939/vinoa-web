@@ -1,5 +1,15 @@
-This is a hobby project
-The purpose of this project is to create a tool that can be used during wine tasting 
-This is a nextjs project with embeded sanity studio
+## Getting Started
 
-https://www.youtube.com/watch?v=OcTPaUfay5I&t=2978s&ab_channel=freeCodeCamp.org
+First, download dependencies:
+
+```bash
+pnpm install
+```
+
+Then, run the development server:
+
+```bash
+pnpm dev
+```
+
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
