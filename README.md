@@ -1,15 +1,17 @@
-## Getting Started
+## Vinoa
 
-First, download dependencies:
+This is a hobby project where I created a website to use for internal wine tasting events. 
+The main usecases of this website:
+- showcase the wines that will be tasted
+- give the participants the oportunity to rate the wines that they tasted
+- provide users with a platform where they could save the wines that they tasted and liked
 
-```bash
-pnpm install
-```
+Tech stack used:
+- Sanity
+- Next.js
+- NextAuth.js
+- Figma
 
-Then, run the development server:
+This is [the link](https://www.figma.com/design/SQUOhEPdhQFBdL8PQm0q5z/WineTaste?node-id=0-1) to the Figma file showcasing the process of the design
 
-```bash
-pnpm dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+![image](https://github.com/user-attachments/assets/dadf932f-e9a5-4685-9536-b3bf6f701bfa)
